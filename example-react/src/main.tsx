@@ -7,6 +7,9 @@ import RenderingComponent from './example/renderingComponent'
 import HandlingEvent from './example/handlingEvent'
 import StateLifecycle from './example/stateLifecycle'
 import ConditionalRendering from './example/conditionalRendering'
+import { EssayForm, FileInput, FlavorForm, NameForm } from './example/forms'
+import LiftingStateUp from './example/liftingStateUp'
+import {App , WelcomeDialog } from './example/composition'
 ReactDOM.render(
   <React.StrictMode>
     <ClassComponents />
@@ -15,7 +18,14 @@ ReactDOM.render(
     <ExtractingComponents />
     <StateLifecycle />
     <HandlingEvent />
-    <ConditionalRendering />
+    <ConditionalRendering /> 
+    <EssayForm />
+    <FileInput />
+    <FlavorForm />
+    <NameForm />  
+    <WelcomeDialog />
+    <LiftingStateUp />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 )
