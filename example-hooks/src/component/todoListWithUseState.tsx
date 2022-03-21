@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
 function TodoList() {
-  const listJobs = localStorage.getItem('jobs')
-  const storageJobs = JSON.parse(listJobs || '[]')
-  console.log(storageJobs)
   const [job, setJob] = useState('')
-  const [jobs, setJobs] = useState(storageJobs ?? [''])
+  const [jobs, setJobs] = useState(() => {
+    const storageJobs = JSON.parse(localStorage.getItem('jobs') || '[]')
+    return storageJobs
+  })
   const handleSubmit = () => {
-    setJobs((prev: String[] )=> {
+    setJobs((prev: String[]) => {
       const newJobs = [...prev, job]
 
       // save to local storage
