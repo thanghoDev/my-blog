@@ -4,7 +4,7 @@ function TodoList() {
 	const listJobs = localStorage.getItem("jobs");
 	const storageJobs = JSON.parse(listJobs || "[]");
 	const [job, setJob] = useState("");
-	const [jobs, setJobs] = useState(storageJobs ?? ['']);
+	const [jobs, setJobs] = useState(storageJobs ?? [""]);
 	const handleSubmit = () => {
 		setJobs((prev: any) => {
 			const newJobs = [...prev, job];
