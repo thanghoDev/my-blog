@@ -6,7 +6,7 @@ function TodoList() {
   const [job, setJob] = useState('')
   const [jobs, setJobs] = useState(storageJobs ?? [''])
   const handleSubmit = () => {
-    setJobs((prev: any) => {
+    setJobs((prev) => {
       const newJobs = [...prev, job]
 
       // save to local storage
