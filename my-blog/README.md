@@ -28,7 +28,7 @@
 
 ## Prerequisite
 
-- [Node](https://nodejs.org/en/ "Node") >= 16.3.0 / [pnpm](https://pnpm.io/) >= 6.25.0
+- [Node](https://nodejs.org/en/ 'Node') >= 16.3.0 / [pnpm](https://pnpm.io/) >= 6.25.0
 
 ### Timeline:
 
