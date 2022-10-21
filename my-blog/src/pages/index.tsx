@@ -1,10 +1,30 @@
-import styles from '../styles/Home.module.css';
+import Carousels from '@/components/section/Carousels';
+import Health from '@/components/section/Health';
+import { Blog } from '@/types/blog';
+// import styles from '@/styles/Home.module.css';
 
-function Home() {
+type TpHomePage = {
+  data: Blog[];
+};
+
+export const getStaticProps = async () => {
+  const response = await fetch(
+    'https://63520df09d64d7c7130d539c.mockapi.io/blog'
+  );
+  const data = await response.json();
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
+function Home({ data }: TpHomePage) {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.main}>Welcome to My blog</h1>
-    </div>
+    <>
+      <Carousels />
+      <Health />
+    </>
   );
 }
 
