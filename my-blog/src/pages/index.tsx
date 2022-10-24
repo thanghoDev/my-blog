@@ -14,25 +14,40 @@ type HomePageProps = {
   carousel: Blog[];
 };
 
+type fetchAPIsProps = {
+  page: string;
+  order: string;
+  limit: string;
+  sortBy: string;
+  search?: string;
+};
+
 export const getStaticProps = async () => {
+  const fetchPosts = (queryObj: fetchAPIsProps) => {
+    return fetch(
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?${new URLSearchParams(
+        queryObj
+      ).toString()}`
+    ).then((data) => data.json());
+  };
   const [carousel, health, trending, business, politics] = await Promise.all([
-    fetchAPIs({ page: '1', limit: '2', sortBy: 'id', order: 'desc' }),
-    fetchAPIs({
+    fetchPosts({ page: '1', limit: '2', sortBy: 'id', order: 'desc' }),
+    fetchPosts({
       page: '1',
       limit: '4',
       search: 'health',
       sortBy: 'id',
       order: 'desc',
     }),
-    fetchAPIs({ page: '1', limit: '4', sortBy: 'view', order: 'desc' }),
-    fetchAPIs({
+    fetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'desc' }),
+    fetchPosts({
       page: '1',
       limit: '3',
       search: 'business',
       sortBy: 'id',
       order: 'desc',
     }),
-    fetchAPIs({
+    fetchPosts({
       page: '1',
       limit: '3',
       search: 'politics',
