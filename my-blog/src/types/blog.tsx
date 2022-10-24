@@ -4,5 +4,6 @@ export type Blog = {
   description: string;
   category: string;
   view: number;
+  alt: string;
   images: string;
 };

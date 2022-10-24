@@ -22,7 +22,7 @@ function Health({ health }: HealthProps) {
             width='350'
             height='210'
             src={firstArticle.images}
-            alt='image'
+            alt={firstArticle.alt}
           />
           <div className='mt-5'>
             <h2 className='fs-5 text-black text-capitalize'>
@@ -35,7 +35,7 @@ function Health({ health }: HealthProps) {
       <Col md={6}>
         {resArticle.map((item) => (
           <div key={item.id} className='d-flex mb-2'>
-            <Image width='105' height='107' src={item.images} alt='image' />
+            <Image width='105' height='107' src={item.images} alt={item.alt} />
             <div className='ms-4'>
               <h2 className='fs-6 text-black text-capitalize'>{item.title}</h2>
               <p className='text-capitalize'>

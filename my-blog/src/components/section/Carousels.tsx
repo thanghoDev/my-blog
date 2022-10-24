@@ -16,7 +16,7 @@ function Carousels({ carousel }: CarouselsProps) {
             width='200'
             height='300'
             src={item.images}
-            alt='First slide'
+            alt={item.alt}
           />
           <Carousel.Caption className='text-dark text-start w-50 top-0 start-50 ps-4'>
             <h3 className='text-capitalize text-black'>{item.title}</h3>
