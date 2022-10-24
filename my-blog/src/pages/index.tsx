@@ -4,6 +4,7 @@ import Trending from '@/components/section/Trending';
 
 // types
 import { Blog } from '@/types/blog';
+import { fetchAPIs } from '../../helpers/fetchAPIs';
 
 type HomePageProps = {
   health: Blog[];
@@ -15,29 +16,38 @@ type HomePageProps = {
 
 export const getStaticProps = async () => {
   const [carousel, health, trending, business, politics] = await Promise.all([
-    fetch(
-      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=2&sortBy=id&order=desc`
-    ).then((data) => data.json()),
-    fetch(
-      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=4&search=health&sortBy=id&order=desc`
-    ).then((data) => data.json()),
-    fetch(
-      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=4&sortBy=view&order=desc`
-    ).then((data) => data.json()),
-    fetch(
-      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=3&search=business&sortBy=id&order=desc`
-    ).then((data) => data.json()),
-    fetch(
-      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=3&search=politics&sortBy=id&order=desc`
-    ).then((data) => data.json()),
+    fetchAPIs({ page: '1', limit: '2', sortBy: 'id', order: 'desc' }),
+    fetchAPIs({
+      page: '1',
+      limit: '4',
+      search: 'health',
+      sortBy: 'id',
+      order: 'desc',
+    }),
+    fetchAPIs({ page: '1', limit: '4', sortBy: 'view', order: 'desc' }),
+    fetchAPIs({
+      page: '1',
+      limit: '3',
+      search: 'business',
+      sortBy: 'id',
+      order: 'desc',
+    }),
+    fetchAPIs({
+      page: '1',
+      limit: '3',
+      search: 'politics',
+      sortBy: 'id',
+      order: 'desc',
+    }),
   ]);
+
   return {
     props: {
+      carousel,
       health,
       trending,
       business,
       politics,
-      carousel,
     },
     revalidate: 300,
   };
