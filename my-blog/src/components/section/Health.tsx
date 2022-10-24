@@ -2,77 +2,49 @@ import React from 'react';
 import Image from 'next/future/image';
 import { Col, Row } from 'react-bootstrap';
 
-function Health() {
+// types
+import { Blog } from '@/types/blog';
+
+type HealthProps = {
+  health: Blog[];
+};
+
+function Health({ health }: HealthProps) {
+  const [firstArticle, ...resArticle] = health;
+
   return (
-    <Row className='g-4 mt-5'>
+    <Row md={8} className='mt-5 align-content-start'>
+      <h2 className='mb-5 text-decoration-underline fs-5'>Health</h2>
       <Col md={6}>
         <div className='mb-2'>
           <Image
             className='w-100'
-            width='150'
-            height='300'
-            src='https://i.ibb.co/QmmqW6t/health.jpg'
+            width='350'
+            height='210'
+            src={firstArticle.images}
             alt='image'
           />
           <div className='mt-5'>
-            <h2>Card title</h2>
-            <p>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
+            <h2 className='fs-5 text-black text-capitalize'>
+              {firstArticle.title}
+            </h2>
+            <p className=''>{firstArticle.description}</p>
           </div>
         </div>
       </Col>
       <Col md={6}>
-        <div className='d-flex mb-2'>
-          <Image
-            width='150'
-            height='150'
-            src='https://i.ibb.co/QmmqW6t/health.jpg'
-            alt='image'
-          />
-          <div className='ms-4'>
-            <h2>Card title</h2>
-            <p>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
+        {resArticle.map((item) => (
+          <div key={item.id} className='d-flex mb-2'>
+            <Image width='105' height='107' src={item.images} alt='image' />
+            <div className='ms-4'>
+              <h2 className='fs-6 text-black text-capitalize'>{item.title}</h2>
+              <p className='text-capitalize'>
+                Dave Rogers <code className='text-secondary'>in</code>{' '}
+                {item.category}
+              </p>
+            </div>
           </div>
-        </div>
-        <div className='d-flex mb-2'>
-          <Image
-            width='150'
-            height='150'
-            src='https://i.ibb.co/QmmqW6t/health.jpg'
-            alt='image'
-          />
-          <div className='ms-4'>
-            <h2>Card title</h2>
-            <p>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-          </div>
-        </div>
-        <div className='d-flex mb-2'>
-          <Image
-            width='150'
-            height='150'
-            src='https://i.ibb.co/QmmqW6t/health.jpg'
-            alt='image'
-          />
-          <div className='ms-4'>
-            <h2>Card title</h2>
-            <p>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-          </div>
-        </div>
+        ))}
       </Col>
     </Row>
   );

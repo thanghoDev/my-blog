@@ -1,29 +1,67 @@
 import Carousels from '@/components/section/Carousels';
 import Health from '@/components/section/Health';
-import { Blog } from '@/types/blog';
-// import styles from '@/styles/Home.module.css';
+import Trending from '@/components/section/Trending';
 
-type TpHomePage = {
-  data: Blog[];
+// types
+import { Blog } from '@/types/blog';
+
+type HomePageProps = {
+  health: Blog[];
+  trending: Blog[];
+  business: Blog[];
+  politics: Blog[];
+  carousel: Blog[];
 };
 
 export const getStaticProps = async () => {
-  const response = await fetch(
-    'https://63520df09d64d7c7130d539c.mockapi.io/blog'
+  const responseCarousels = await fetch(
+    `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=2&sortBy=id&order=desc`
   );
-  const data = await response.json();
+  const responseHealth = await fetch(
+    `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=4&search=health&sortBy=id&order=desc`
+  );
+  const responseTrending = await fetch(
+    `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=4&sortBy=view&order=desc`
+  );
+
+  const responseBusiness = await fetch(
+    `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=3&search=business&sortBy=id&order=desc`
+  );
+  const responsePolitics = await fetch(
+    `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=3&search=politics&sortBy=id&order=desc`
+  );
+
+  const health = await responseHealth.json();
+  const trending = await responseTrending.json();
+  const business = await responseBusiness.json();
+  const politics = await responsePolitics.json();
+  const carousel = await responseCarousels.json();
   return {
     props: {
-      data,
+      health,
+      trending,
+      business,
+      politics,
+      carousel,
     },
+    revalidate: 300,
   };
 };
 
-function Home({ data }: TpHomePage) {
+function Home({
+  health,
+  trending,
+  business,
+  politics,
+  carousel,
+}: HomePageProps) {
   return (
     <>
-      <Carousels />
-      <Health />
+      <Carousels carousel={carousel} />
+      <div className='d-flex'>
+        <Health health={health} />
+        <Trending trending={trending} />
+      </div>
     </>
   );
 }
