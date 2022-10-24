@@ -4,7 +4,6 @@ import Trending from '@/components/section/Trending';
 
 // types
 import { Blog } from '@/types/blog';
-import { fetchAPIs } from '../../helpers/fetchAPIs';
 
 type HomePageProps = {
   health: Blog[];
