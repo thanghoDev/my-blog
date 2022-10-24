@@ -14,28 +14,23 @@ type HomePageProps = {
 };
 
 export const getStaticProps = async () => {
-  const responseCarousels = await fetch(
-    `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=2&sortBy=id&order=desc`
-  );
-  const responseHealth = await fetch(
-    `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=4&search=health&sortBy=id&order=desc`
-  );
-  const responseTrending = await fetch(
-    `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=4&sortBy=view&order=desc`
-  );
-
-  const responseBusiness = await fetch(
-    `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=3&search=business&sortBy=id&order=desc`
-  );
-  const responsePolitics = await fetch(
-    `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=3&search=politics&sortBy=id&order=desc`
-  );
-
-  const health = await responseHealth.json();
-  const trending = await responseTrending.json();
-  const business = await responseBusiness.json();
-  const politics = await responsePolitics.json();
-  const carousel = await responseCarousels.json();
+  const [carousel, health, trending, business, politics] = await Promise.all([
+    fetch(
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=2&sortBy=id&order=desc`
+    ).then((data) => data.json()),
+    fetch(
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=4&search=health&sortBy=id&order=desc`
+    ).then((data) => data.json()),
+    fetch(
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=4&sortBy=view&order=desc`
+    ).then((data) => data.json()),
+    fetch(
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=3&search=business&sortBy=id&order=desc`
+    ).then((data) => data.json()),
+    fetch(
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?page=1&limit=3&search=politics&sortBy=id&order=desc`
+    ).then((data) => data.json()),
+  ]);
   return {
     props: {
       health,

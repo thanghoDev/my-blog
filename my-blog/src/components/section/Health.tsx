@@ -18,7 +18,6 @@ function Health({ health }: HealthProps) {
       <Col md={6}>
         <div className='mb-2'>
           <Image
-            className='w-100'
             width='350'
             height='210'
             src={firstArticle.images}
