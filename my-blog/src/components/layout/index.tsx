@@ -9,11 +9,9 @@ type LayoutProps = {
 function Layout({ children }: LayoutProps) {
   return (
     <>
-      <div className='container'>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </div>
+      <Header />
+      <main>{children}</main>
+      <Footer />
     </>
   );
 }
