@@ -24,7 +24,9 @@ type fetchAPIsProps = {
 export const getStaticProps = async () => {
   const fetchPosts = async (queryObj: fetchAPIsProps) => {
     const data = await fetch(
-      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?${new URLSearchParams(queryObj)}`
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?${new URLSearchParams(
+        queryObj
+      ).toString()}`
     );
     return await data.json();
   };
