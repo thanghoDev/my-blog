@@ -1,9 +1,12 @@
-import Carousels from '@/components/section/Carousels';
 import Health from '@/components/section/Health';
+import Politics from '@/components/section/Politics';
 import Trending from '@/components/section/Trending';
+import Business from '@/components/section/Business';
+import Carousels from '@/components/section/Carousels';
 
 // types
 import { Blog } from '@/types/blog';
+import Subscribe from '@/components/section/Subscribe';
 
 type HomePageProps = {
   health: Blog[];
@@ -77,10 +80,19 @@ function Home({
 }: HomePageProps) {
   return (
     <>
-      <Carousels carousel={carousel} />
-      <div className='d-flex'>
-        <Health health={health} />
-        <Trending trending={trending} />
+      <div className='container'>
+        <Carousels carousel={carousel} />
+        <div className='d-flex pt-5 pb-5'>
+          <Health health={health} />
+          <Trending trending={trending} />
+        </div>
+        <div className='d-flex pt-5 pb-5'>
+          <Politics politics={politics} />
+          <Business business={business} />
+        </div>
+      </div>
+      <div className='bg-light pt-5 pb-5 mt-5'>
+        <Subscribe />
       </div>
     </>
   );

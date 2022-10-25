@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing business section render section 1`] = `
+<div
+  class="col-md-6"
+>
+  <h2
+    class="mb-5 text-decoration-underline fs-5"
+  >
+    Business
+  </h2>
+  <div
+    class="d-flex mb-3"
+  >
+    <img
+      alt="business"
+      data-nimg="future"
+      decoding="async"
+      height="180"
+      loading="lazy"
+      src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fbusiness.jpg&w=384&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fbusiness.jpg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fbusiness.jpg&w=384&q=75 2x"
+      style="color: transparent;"
+      width="165"
+    />
+    <div
+      class="ms-4"
+    >
+      <h2
+        class="fs-6 text-black text-capitalize"
+      >
+        title
+      </h2>
+      <p
+        class="description"
+      >
+        description
+      </p>
+      <p
+        class="text-capitalize category"
+      >
+        Dave Rogers 
+        <code
+          class="text-secondary"
+        >
+          in
+        </code>
+         
+        business
+      </p>
+    </div>
+  </div>
+</div>
+`;
