@@ -1,5 +1,5 @@
 import React from 'react';
-import Politics from '../Politics';
+import PostList from '../PostList';
 
 import { render, screen } from '@testing-library/react';
 
@@ -16,7 +16,7 @@ describe('testing Politics section', () => {
     },
   ];
   test('render section', () => {
-    const { container } = render(<Politics politics={politics} />);
+    const { container } = render(<PostList data={politics} />);
     expect(container.firstChild).toMatchSnapshot();
     const heading = screen.getByRole('heading', {
       name: /politics/i,

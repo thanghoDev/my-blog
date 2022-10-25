@@ -1,12 +1,11 @@
 import Health from '@/components/section/Health';
-import Politics from '@/components/section/Politics';
+import PostList from '@/components/section/PostList';
 import Trending from '@/components/section/Trending';
-import Business from '@/components/section/Business';
 import Carousels from '@/components/section/Carousels';
+import Subscribe from '@/components/section/Subscribe';
 
 // types
 import { Blog } from '@/types/blog';
-import Subscribe from '@/components/section/Subscribe';
 
 type HomePageProps = {
   health: Blog[];
@@ -87,8 +86,8 @@ function Home({
           <Trending trending={trending} />
         </div>
         <div className='d-flex pt-5 pb-5'>
-          <Politics politics={politics} />
-          <Business business={business} />
+          <PostList data={politics} />
+          <PostList data={business} />
         </div>
       </div>
       <div className='bg-light pt-5 pb-5 mt-5'>

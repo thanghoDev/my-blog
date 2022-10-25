@@ -4,14 +4,14 @@ import { Col } from 'react-bootstrap';
 import { Blog } from '@/types/blog';
 
 type PoliticsProps = {
-  politics: Blog[];
+  data: Blog[];
 };
 
-function Politics({ politics }: PoliticsProps) {
+function PostList({ data }: PoliticsProps) {
   return (
-    <Col md={6}>
+    <Col md={6} className='me-4'>
       <h2 className='mb-5 text-decoration-underline fs-5'>Politics</h2>
-      {politics.map((item) => (
+      {data.map((item) => (
         <div key={item.id} className='d-flex mb-3'>
           <Image width='165' height='180' src={item.images} alt={item.alt} />
           <div className='ms-4'>
@@ -28,4 +28,4 @@ function Politics({ politics }: PoliticsProps) {
   );
 }
 
-export default Politics;
+export default PostList;
