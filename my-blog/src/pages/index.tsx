@@ -24,9 +24,7 @@ type fetchAPIsProps = {
 export const getStaticProps = async () => {
   const fetchPosts = (queryObj: fetchAPIsProps) => {
     return fetch(
-      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?${new URLSearchParams(
-        queryObj
-      ).toString()}`
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?${new URLSearchParams(queryObj)}`
     ).then((data) => data.json());
   };
   const [carousel, health, trending, business, politics] = await Promise.all([
