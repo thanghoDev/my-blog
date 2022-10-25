@@ -45,7 +45,7 @@ function Header() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-      <Nav defaultActiveKey='/home' className='gap-4 mt-4' as='ul'>
+      <Nav defaultActiveKey='/home' className='gap-4 mt-4 pb-5' as='ul'>
         <Nav.Item as='li'>
           <Nav.Link href='/home' className='text-black-50'>
             Home
