@@ -1,6 +1,8 @@
-import Carousels from '@/components/section/Carousels';
 import Health from '@/components/section/Health';
+import PostList from '@/components/section/PostList';
 import Trending from '@/components/section/Trending';
+import Carousels from '@/components/section/Carousels';
+import Subscribe from '@/components/section/Subscribe';
 
 // types
 import { Blog } from '@/types/blog';
@@ -77,10 +79,19 @@ function Home({
 }: HomePageProps) {
   return (
     <>
-      <Carousels carousel={carousel} />
-      <div className='d-flex'>
-        <Health health={health} />
-        <Trending trending={trending} />
+      <div className='container'>
+        <Carousels carousel={carousel} />
+        <div className='d-flex pt-5 pb-5'>
+          <Health health={health} />
+          <Trending trending={trending} />
+        </div>
+        <div className='d-flex pt-5 pb-5'>
+          <PostList title='politics' data={politics} />
+          <PostList title='business' data={business} />
+        </div>
+      </div>
+      <div className='bg-light pt-5 pb-5 mt-5'>
+        <Subscribe />
       </div>
     </>
   );
