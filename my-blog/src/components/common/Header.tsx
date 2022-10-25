@@ -11,7 +11,7 @@ import {
 
 function Header() {
   return (
-    <>
+    <div className='container'>
       <Navbar className='mt-3'>
         <Container fluid>
           <Navbar.Brand href='#' className='text-capitalize fs-2'>
@@ -67,7 +67,7 @@ function Header() {
           </Nav.Link>
         </Nav.Item>
       </Nav>
-    </>
+    </div>
   );
 }
 

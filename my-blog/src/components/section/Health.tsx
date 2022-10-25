@@ -27,7 +27,7 @@ function Health({ health }: HealthProps) {
             <h2 className='fs-5 text-black text-capitalize'>
               {firstArticle.title}
             </h2>
-            <p className=''>{firstArticle.description}</p>
+            <p className='description'>{firstArticle.description}</p>
           </div>
         </div>
       </Col>
@@ -37,7 +37,7 @@ function Health({ health }: HealthProps) {
             <Image width='105' height='107' src={item.images} alt={item.alt} />
             <div className='ms-4'>
               <h2 className='fs-6 text-black text-capitalize'>{item.title}</h2>
-              <p className='text-capitalize'>
+              <p className='text-capitalize category'>
                 Dave Rogers <code className='text-secondary'>in</code>{' '}
                 {item.category}
               </p>
