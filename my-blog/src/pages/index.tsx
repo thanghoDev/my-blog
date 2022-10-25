@@ -22,10 +22,11 @@ type fetchAPIsProps = {
 };
 
 export const getStaticProps = async () => {
-  const fetchPosts = (queryObj: fetchAPIsProps) => {
-    return fetch(
+  const fetchPosts = async (queryObj: fetchAPIsProps) => {
+    const data = await fetch(
       `${process.env.NEXT_PUBLIC_DEVELOPMENT}?${new URLSearchParams(queryObj)}`
-    ).then((data) => data.json());
+    );
+    return await data.json();
   };
   const [carousel, health, trending, business, politics] = await Promise.all([
     fetchPosts({ page: '1', limit: '2', sortBy: 'id', order: 'desc' }),
