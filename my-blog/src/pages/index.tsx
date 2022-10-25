@@ -86,8 +86,8 @@ function Home({
           <Trending trending={trending} />
         </div>
         <div className='d-flex pt-5 pb-5'>
-          <PostList data={politics} />
-          <PostList data={business} />
+          <PostList title='politics' data={politics} />
+          <PostList title='business' data={business} />
         </div>
       </div>
       <div className='bg-light pt-5 pb-5 mt-5'>

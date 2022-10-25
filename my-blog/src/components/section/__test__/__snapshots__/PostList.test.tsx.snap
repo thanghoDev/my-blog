@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`testing business section render section 1`] = `
+exports[`testing Politics section render section 1`] = `
 <div
-  class="col-md-6"
+  class="me-4 col-md-6"
 >
   <h2
-    class="mb-5 text-decoration-underline fs-5"
+    class="mb-5 text-decoration-underline text-capitalize fs-5"
   >
-    Business
+    headingTitle
   </h2>
   <div
     class="d-flex mb-3"
   >
     <img
-      alt="business"
+      alt="PostList"
       data-nimg="future"
       decoding="async"
       height="180"
       loading="lazy"
-      src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fbusiness.jpg&w=384&q=75"
-      srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fbusiness.jpg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fbusiness.jpg&w=384&q=75 2x"
+      src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2FPostList.jpg&w=384&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2FPostList.jpg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2FPostList.jpg&w=384&q=75 2x"
       style="color: transparent;"
       width="165"
     />
@@ -46,7 +46,7 @@ exports[`testing business section render section 1`] = `
           in
         </code>
          
-        business
+        PostList
       </p>
     </div>
   </div>
