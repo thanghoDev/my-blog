@@ -19,8 +19,9 @@ function Trending({ trending }: TrendingProps) {
             <h3 className={`text-black text-capitalize ${Styles.title}`}>
               {item.title}
             </h3>
-            <p>
-              Dave Rogers <code className='text-secondary'>in</code> Trending
+            <p className='text-capitalize category'>
+              Dave Rogers <code className='text-secondary'>in</code>{' '}
+              {item.category}
             </p>
           </div>
         </div>
