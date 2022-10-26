@@ -13,6 +13,7 @@ describe('testing Health section', () => {
       view: 150,
       images: 'https://i.ibb.co/10hj3h1/health.jpg',
       alt: 'health',
+      content: 'content',
     },
     {
       id: 2,
@@ -22,6 +23,7 @@ describe('testing Health section', () => {
       view: 150,
       images: 'https://i.ibb.co/10hj3h1/health.jpg',
       alt: 'resHeath',
+      content: 'content',
     },
   ];
   test('render Health section', () => {

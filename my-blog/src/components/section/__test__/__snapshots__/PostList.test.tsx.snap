@@ -5,9 +5,11 @@ exports[`testing Politics section render section 1`] = `
   class="me-4 col-md-6"
 >
   <h2
-    class="mb-5 text-decoration-underline text-capitalize fs-5"
+    class="mb-5 text-decoration-underline text-capitalize fs-5 postTitle"
   >
-    headingTitle
+    <a>
+      headingTitle
+    </a>
   </h2>
   <div
     class="d-flex mb-3"
@@ -29,7 +31,9 @@ exports[`testing Politics section render section 1`] = `
       <h2
         class="fs-6 text-black text-capitalize"
       >
-        title
+        <a>
+          title
+        </a>
       </h2>
       <p
         class="description"

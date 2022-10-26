@@ -21,28 +21,32 @@ function Health({ health }: HealthProps) {
         </h2>
       </Link>
       <Col md={6}>
-        <div className='mb-2'>
-          <Image
-            width='350'
-            height='210'
-            src={firstArticle.images}
-            alt={firstArticle.alt}
-          />
-          <div className='mt-5'>
-            <Link href={`detail/${firstArticle.id}`}>
-              <a className='fs-5 text-black text-decoration-none text-capitalize'>
-                {firstArticle.title}
-              </a>
-            </Link>
+        <Image
+          width='350'
+          height='210'
+          src={firstArticle.images}
+          alt={firstArticle.alt}
+        />
+        <div className='mt-5'>
+          <Link href={`detail/${firstArticle.id}`}>
+            <a className='fs-5 text-black text-decoration-none text-capitalize'>
+              {firstArticle.title}
+            </a>
+          </Link>
 
-            <p className='description'>{firstArticle.description}</p>
-          </div>
+          <p className='description'>{firstArticle.description}</p>
         </div>
       </Col>
       <Col md={6}>
         {resArticle.map((item) => (
           <div key={item.id} className='d-flex mb-2'>
-            <Image width='105' height='107' src={item.images} alt={item.alt} />
+            <Image
+              width='105'
+              height='107'
+              style={{ objectFit: 'cover' }}
+              src={item.images}
+              alt={item.alt}
+            />
             <div className='ms-4'>
               <Link href={`detail/${item.id}`}>
                 <a className='fs-6 text-black text-decoration-none text-capitalize'>

@@ -5,9 +5,11 @@ exports[`testing Trending section render Trending section 1`] = `
   class="mt-5 ps-4 col-md-4"
 >
   <h2
-    class="mb-5 text-decoration-underline fs-5"
+    class="mb-5 postTitle text-decoration-underline text-capitalize fs-5"
   >
-    Trending
+    <a>
+      trending
+    </a>
   </h2>
   <div
     class="mt-3 d-flex"
@@ -19,13 +21,14 @@ exports[`testing Trending section render Trending section 1`] = `
     <div
       class="ms-4"
     >
-      <h3
-        class="text-black text-capitalize undefined"
+      <a
+        class="text-black text-capitalize text-decoration-none undefined"
+        href="/detail/1"
       >
         title
-      </h3>
+      </a>
       <p
-        class="text-capitalize category"
+        class="text-capitalize category mt-3"
       >
         Dave Rogers 
         <code
@@ -34,13 +37,18 @@ exports[`testing Trending section render Trending section 1`] = `
           in
         </code>
          
-        health
+        <a
+          class="text-black text-decoration-none"
+          href="/category/health"
+        >
+          health
+        </a>
       </p>
     </div>
   </div>
   <a
     class="text-uppercase link-success text-decoration-none"
-    href="/#"
+    href="/category/trending"
   >
     See all trends
     <i

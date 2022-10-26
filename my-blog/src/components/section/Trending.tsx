@@ -8,7 +8,9 @@ import { Blog } from '@/types/blog';
 type TrendingProps = {
   trending: Blog[];
 };
+
 function Trending({ trending }: TrendingProps) {
+  if (!trending) return <div>loading</div>;
   return (
     <Col md={4} className='mt-5 ps-4'>
       <Link href={`category/trending`}>
