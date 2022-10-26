@@ -15,7 +15,7 @@ type HomePageProps = {
   carousel: Blog[];
 };
 
-type fetchAPIsProps = {
+type fetchPostsProps = {
   page: string;
   order: string;
   limit: string;
@@ -24,7 +24,7 @@ type fetchAPIsProps = {
 };
 
 export const getStaticProps = async () => {
-  const fetchPosts = async (queryObj: fetchAPIsProps) => {
+  const FetchPosts = async (queryObj: fetchPostsProps) => {
     const data = await fetch(
       `${process.env.NEXT_PUBLIC_DEVELOPMENT}?${new URLSearchParams(
         queryObj
@@ -32,24 +32,25 @@ export const getStaticProps = async () => {
     );
     return await data.json();
   };
+
   const [carousel, health, trending, business, politics] = await Promise.all([
-    fetchPosts({ page: '1', limit: '2', sortBy: 'id', order: 'desc' }),
-    fetchPosts({
+    FetchPosts({ page: '1', limit: '2', sortBy: 'id', order: 'desc' }),
+    FetchPosts({
       page: '1',
       limit: '4',
       search: 'health',
       sortBy: 'id',
       order: 'desc',
     }),
-    fetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'desc' }),
-    fetchPosts({
+    FetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'desc' }),
+    FetchPosts({
       page: '1',
       limit: '3',
       search: 'business',
       sortBy: 'id',
       order: 'desc',
     }),
-    fetchPosts({
+    FetchPosts({
       page: '1',
       limit: '3',
       search: 'politics',
@@ -90,9 +91,7 @@ function Home({
           <PostList title='business' data={business} />
         </div>
       </div>
-      <div className='bg-light pt-5 pb-5 mt-5'>
-        <Subscribe />
-      </div>
+      <Subscribe />
     </>
   );
 }
