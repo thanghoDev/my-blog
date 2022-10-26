@@ -13,6 +13,7 @@ describe('testing Carousels', () => {
       view: 150,
       images: 'https://i.ibb.co/10hj3h1/carousel.jpg',
       alt: 'carousel',
+      content: 'content',
     },
   ];
   test('render Carousels', () => {

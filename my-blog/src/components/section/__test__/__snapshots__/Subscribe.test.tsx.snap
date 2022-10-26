@@ -2,43 +2,47 @@
 
 exports[`testing Subscribe section render Subscribe section 1`] = `
 <div
-  class="container"
+  class="bg-light pt-5 pb-5 mt-5"
 >
-  <form
-    action="#"
-    class="row align-items-center"
+  <div
+    class="container"
   >
-    <div
-      class="col-md-5 mr-auto"
+    <form
+      action="#"
+      class="row align-items-center"
     >
-      <h2
-        class="text-capitalize"
+      <div
+        class="col-md-5 mr-auto"
       >
-        newsletter subscribe
-      </h2>
-      <p
-        class="description"
+        <h2
+          class="text-capitalize"
+        >
+          newsletter subscribe
+        </h2>
+        <p
+          class="description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis aspernatur ut at quae omnis pariatur obcaecati possimus nisi ea iste!
+        </p>
+      </div>
+      <div
+        class="col-md-6 ml-auto d-flex gap-2"
       >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis aspernatur ut at quae omnis pariatur obcaecati possimus nisi ea iste!
-      </p>
-    </div>
-    <div
-      class="col-md-6 ml-auto d-flex gap-2"
-    >
-      <input
-        class="form-control rounded-pill"
-        placeholder="Enter your email"
-        type="email"
-      />
-      <button
-        class="btn btn-outline-success border border-light rounded-circle bg-dark"
-        type="button"
-      >
-        <i
-          class="bi bi-send text-light"
+        <input
+          class="form-control rounded-pill"
+          placeholder="Enter your email"
+          type="email"
         />
-      </button>
-    </div>
-  </form>
+        <button
+          class="btn btn-outline-success border border-light rounded-circle bg-dark"
+          type="button"
+        >
+          <i
+            class="bi bi-send text-light"
+          />
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 `;

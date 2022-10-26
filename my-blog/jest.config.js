@@ -10,10 +10,10 @@ module.exports = {
   ],
   coverageThreshold: {
     global: {
-      branches: 90,
-      functions: 90,
-      lines: 90,
-      statements: 90,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
     },
   },
   transform: {
@@ -24,9 +24,11 @@ module.exports = {
   testEnvironment: 'jest-environment-jsdom',
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   moduleNameMapper: {
-    '^@pages(.*)$': '<rootDir>src/pages/$1',
-    '^@components(.*)$': '<rootDir>src/components/$1',
-    '^@styles(.*)$': '<rootDir>src/styles/$1',
+    '.+\\.(css|less|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/src/__mocks__/fileMock.js',
+    '^@/pages(.*)$': '<rootDir>src/pages/$1',
+    '^@/components(.*)$': '<rootDir>src/components/$1',
+    '^@/assets(.*)$': '<rootDir>src/assets/$1',
     '\\.css$': '<rootDir>/src/__mocks__/styleMock.js',
   },
   transformIgnorePatterns: [

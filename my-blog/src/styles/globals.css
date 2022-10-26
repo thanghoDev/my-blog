@@ -15,3 +15,7 @@ h1, h2, h3 {
   font-family: Cabin, sans-serif;
   font-size: 13px;
 }
+
+.postTitle {
+  cursor: pointer;
+}
