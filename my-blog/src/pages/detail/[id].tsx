@@ -75,20 +75,19 @@ function Detail({ data }: DetailProps) {
               dangerouslySetInnerHTML={{ __html: data.content }}
             />
           </div>
-          <div className='pt-5'>
-            <p>
-              Categories:
-              <code className='text-success text-capitalize'>
-                {' '}
-                design, events.
-              </code>
-              Tags:
-              <code className='text-success text-capitalize'>
-                {' '}
-                #{data.category}
-              </code>
-            </p>
-          </div>
+
+          <p className='pt-5'>
+            Categories:
+            <code className='text-success text-capitalize'>
+              {' '}
+              design, events.
+            </code>
+            Tags:
+            <code className='text-success text-capitalize'>
+              {' '}
+              #{data.category}
+            </code>
+          </p>
         </Col>
       </div>
       <Subscribe />
