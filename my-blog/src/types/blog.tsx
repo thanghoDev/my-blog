@@ -6,4 +6,5 @@ export type Blog = {
   view: number;
   alt: string;
   images: string;
+  content: string;
 };
