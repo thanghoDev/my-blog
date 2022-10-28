@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 function Subscribe() {
   return (
     <div className='bg-light pt-5 pb-5 mt-5'>
-      <div className='container'>
+      <div className='container pb-5 pt-5'>
         <form action='#' className='row align-items-center'>
           <div className='col-md-5 mr-auto'>
             <h2 className='text-capitalize'>newsletter subscribe</h2>

@@ -17,5 +17,6 @@ h1, h2, h3 {
 }
 
 .postTitle {
+  font-family: Cabin, sans-serif;
   cursor: pointer;
 }
