@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import Detail, { getStaticPaths, getStaticProps } from '../[id]';
+import Detail, { getStaticPaths, getStaticProps } from '@/pages/detail/[id]';
 
 describe('testing Detail page', () => {
   test('check on getStaticPaths', async () => {
