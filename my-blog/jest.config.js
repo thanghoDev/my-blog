@@ -28,6 +28,7 @@ module.exports = {
       '<rootDir>/src/__mocks__/fileMock.js',
     '^@/pages(.*)$': '<rootDir>src/pages/$1',
     '^@/components(.*)$': '<rootDir>src/components/$1',
+    '^@/helpers/(.*)$': '<rootDir>src/helpers//$1',
     '^@/assets(.*)$': '<rootDir>src/assets/$1',
     '\\.css$': '<rootDir>/src/__mocks__/styleMock.js',
   },

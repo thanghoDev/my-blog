@@ -7,6 +7,9 @@ import Subscribe from '@/components/section/Subscribe';
 // types
 import { Blog } from '@/types/blog';
 
+// helpers
+import { FetchPosts } from '@/helpers/FetchPosts';
+
 type HomePageProps = {
   health: Blog[];
   trending: Blog[];
@@ -15,42 +18,25 @@ type HomePageProps = {
   carousel: Blog[];
 };
 
-type fetchPostsProps = {
-  page: string;
-  order: string;
-  limit: string;
-  sortBy: string;
-  search?: string;
-};
-
 export const getStaticProps = async () => {
-  const fetchPosts = async (queryObj: fetchPostsProps) => {
-    const data = await fetch(
-      `${process.env.NEXT_PUBLIC_DEVELOPMENT}?${new URLSearchParams(
-        queryObj
-      ).toString()}`
-    );
-    return await data.json();
-  };
-
   const [carousel, health, trending, business, politics] = await Promise.all([
-    fetchPosts({ page: '1', limit: '2', sortBy: 'id', order: 'desc' }),
-    fetchPosts({
+    FetchPosts({ page: '1', limit: '2', sortBy: 'id', order: 'desc' }),
+    FetchPosts({
       page: '1',
       limit: '4',
       search: 'health',
       sortBy: 'id',
       order: 'desc',
     }),
-    fetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'desc' }),
-    fetchPosts({
+    FetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'desc' }),
+    FetchPosts({
       page: '1',
       limit: '3',
       search: 'business',
       sortBy: 'id',
       order: 'desc',
     }),
-    fetchPosts({
+    FetchPosts({
       page: '1',
       limit: '3',
       search: 'politics',

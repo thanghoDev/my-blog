@@ -15,7 +15,7 @@ type DetailProps = {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_DEVELOPMENT}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_DEVELOPMENT_BLOG}`);
   const data = await response.json();
 
   const paths = data.map((post: Blog) => ({
@@ -27,7 +27,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id;
-  const response = await fetch(`${process.env.NEXT_PUBLIC_DEVELOPMENT}/${id}`);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_DEVELOPMENT_BLOG}/${id}`
+  );
 
   const data = await response.json();
   return {
@@ -61,7 +63,7 @@ function Detail({ data }: DetailProps) {
             <div className='mx-3'>
               <p className='text-capitalize'>
                 Dave Rogers <code className='text-secondary'>in</code>{' '}
-                <Link href={`category/${data.category}`}>
+                <Link href={`/category/${data.category}`}>
                   <a className='text-black text-decoration-none'>
                     {data.category}
                   </a>
