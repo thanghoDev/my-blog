@@ -9,13 +9,13 @@ type CarouselsProps = {
 
 function Carousels({ carousel }: CarouselsProps) {
   return (
-    <Carousel className='mt-5 d-flex bg-light'>
+    <Carousel variant='dark' className='mt-5 d-flex bg-light'>
       {carousel.map((item) => (
         <Carousel.Item key={item.id}>
           <Image
             className='d-block w-50'
-            width='200'
-            height='300'
+            width='555'
+            height='377'
             src={item.images}
             alt={item.alt}
           />
@@ -25,7 +25,15 @@ function Carousels({ carousel }: CarouselsProps) {
                 <a>{item.title}</a>
               </h3>
             </Link>
-            <p>{item.description}</p>
+            <p className='description'>{item.description}</p>
+            <p className='text-capitalize category mt-3'>
+              Dave Rogers <code className='text-secondary'>in</code>{' '}
+              <Link href={`/category/${item.category}`}>
+                <a className='text-black text-decoration-none'>
+                  {item.category}
+                </a>
+              </Link>
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
       ))}
