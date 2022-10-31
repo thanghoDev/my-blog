@@ -5,7 +5,7 @@
 - Next.js.
 - React.
 - TypeScript.
-- Material UI
+- React Bootstrap
 - Data Fetching SWR.
 - Jest & React Testing Lib.
 - CSS Modules.
