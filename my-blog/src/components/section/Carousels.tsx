@@ -1,8 +1,12 @@
-import { Blog } from '@/types/blog';
 import Image from 'next/future/image';
 import Link from 'next/link';
 import { Carousel } from 'react-bootstrap';
 
+// constant
+import { CATEGORY, DETAIL } from 'constant/Category';
+
+// types
+import { Blog } from '@/types/blog';
 type CarouselsProps = {
   carousel: Blog[];
 };
@@ -20,7 +24,7 @@ function Carousels({ carousel }: CarouselsProps) {
             alt={item.alt}
           />
           <Carousel.Caption className='text-dark text-start w-50 top-0 start-50 ps-4'>
-            <Link href={`detail/${item.id}`}>
+            <Link href={`${DETAIL}/${item.id}`}>
               <h3 className='text-capitalize text-black'>
                 <a>{item.title}</a>
               </h3>
@@ -28,7 +32,7 @@ function Carousels({ carousel }: CarouselsProps) {
             <p className='description'>{item.description}</p>
             <p className='text-capitalize category mt-3'>
               Dave Rogers <code className='text-secondary'>in</code>{' '}
-              <Link href={`/category/${item.category}`}>
+              <Link href={`/${CATEGORY}/${item.category}`}>
                 <a className='text-black text-decoration-none'>
                   {item.category}
                 </a>
