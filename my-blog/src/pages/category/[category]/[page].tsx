@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { Col, Row } from 'react-bootstrap';
 import Pagination from 'react-bootstrap/Pagination';
@@ -10,8 +11,13 @@ import Subscribe from '@/components/section/Subscribe';
 // types
 import { Blog } from '@/types/blog';
 import { GetStaticPaths, GetStaticProps } from 'next';
+
+// helper
 import { FetchPosts } from '@/helpers/FetchPosts';
-import Link from 'next/link';
+
+// constants
+import { CATEGORY } from 'constant/Category';
+import { BLOG } from 'constant/Blog';
 
 type CategoryProps = {
   category: string;
@@ -37,14 +43,15 @@ type Paths = {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_DEVELOPMENT_CATEGORY}`
+    `${process.env.NEXT_PUBLIC_DEVELOPMENT}/${CATEGORY}`
   );
+
   const data = await response.json();
 
   const result = await Promise.all(
     data.map((item: Category) =>
       fetch(
-        `${process.env.NEXT_PUBLIC_DEVELOPMENT_BLOG}/?search=${item.category}`
+        `${process.env.NEXT_PUBLIC_DEVELOPMENT}/${BLOG}/?search=${item.category}`
       )
         .then((data) => data.json())
         .then((posts) => ({
@@ -73,7 +80,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const category = params?.category;
   const page = params?.page;
 
-  const [resCategories, resTrending, allCategory] = await Promise.all([
+  const [categories, trending, allCategory] = await Promise.all([
     FetchPosts({
       page: `${page}`,
       limit: '4',
@@ -89,19 +96,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const total = Math.ceil(allCategory.length / 4);
   const totalPage = Array.from({ length: total }, (_, index) => index + 1);
-
-  const categories = resCategories.map((item: Blog) => ({
-    id: item.id,
-    title: item.title,
-    description: item.description,
-    category: item.category,
-  }));
-
-  const trending = resTrending.map((item: Blog) => ({
-    id: item.id,
-    title: item.title,
-    category: item.category,
-  }));
 
   return {
     props: {
@@ -136,11 +130,9 @@ function Category({
                 <div key={item.id} className='d-flex mb-3'>
                   <div className='me-3 w-100'>
                     <Link href={`/detail/${item.id}`}>
-                      <h3 className='fs-5 text-black text-capitalize postTitle'>
-                        <a>
-                          {item.id}: {item.title}
-                        </a>
-                      </h3>
+                      <a className='fs-5 text-black text-capitalize postTitle text-decoration-none'>
+                        {item.title}
+                      </a>
                     </Link>
                     <p className='description'>{item.description}</p>
                     <p className='text-capitalize category'>
@@ -161,11 +153,14 @@ function Category({
           </Row>
           <Trending trending={trending} />
         </div>
-        <Pagination className='gap-1'>
+        <Pagination>
           {totalPage.map((item, index) => (
-            <Link key={index} href={`/category/${category}/${item}`} passHref>
+            <Link
+              key={index}
+              href={`/${CATEGORY}/${category}/${item}`}
+              passHref
+            >
               <Pagination.Item
-                key={index}
                 className={`${item === parseInt(page) ? 'disabled' : ''}`}
               >
                 {item}

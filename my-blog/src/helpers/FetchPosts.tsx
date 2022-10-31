@@ -1,3 +1,5 @@
+import { BLOG } from 'constant/Blog';
+
 type fetchPostsProps = {
   page?: string;
   order?: string;
@@ -8,7 +10,7 @@ type fetchPostsProps = {
 
 async function FetchPosts(queryObj: fetchPostsProps) {
   const data = await fetch(
-    `${process.env.NEXT_PUBLIC_DEVELOPMENT_BLOG}?${new URLSearchParams(
+    `${process.env.NEXT_PUBLIC_DEVELOPMENT}/${BLOG}?${new URLSearchParams(
       queryObj
     ).toString()}`
   );
