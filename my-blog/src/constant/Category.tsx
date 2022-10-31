@@ -1,1 +1,3 @@
-export const CATEGORY = 'category';
+const CATEGORY = 'category';
+const DETAIL = 'detail';
+export { CATEGORY, DETAIL };
