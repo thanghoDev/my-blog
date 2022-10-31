@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`testing Politics section render section 1`] = `
+exports[`testing PostList section render section 1`] = `
 <div
   class="me-4 col-md-6"
 >
@@ -15,7 +15,7 @@ exports[`testing Politics section render section 1`] = `
     class="d-flex mb-3"
   >
     <img
-      alt="PostList"
+      alt="postList"
       data-nimg="future"
       decoding="async"
       height="180"
@@ -28,13 +28,12 @@ exports[`testing Politics section render section 1`] = `
     <div
       class="ms-4"
     >
-      <h2
-        class="fs-6 text-black text-capitalize"
+      <a
+        class="fs-6 text-decoration-none text-black text-capitalize postTitle"
+        href="/detail/1"
       >
-        <a>
-          title
-        </a>
-      </h2>
+        title
+      </a>
       <p
         class="description"
       >
@@ -50,7 +49,12 @@ exports[`testing Politics section render section 1`] = `
           in
         </code>
          
-        PostList
+        <a
+          class="text-black text-decoration-none"
+          href="/category/postList"
+        >
+          postList
+        </a>
       </p>
     </div>
   </div>

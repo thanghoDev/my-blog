@@ -5,6 +5,7 @@ import { Col, Row } from 'react-bootstrap';
 // types
 import { Blog } from '@/types/blog';
 import Link from 'next/link';
+import { CATEGORY, DETAIL } from 'constant/Category';
 
 type HealthProps = {
   health: Blog[];
@@ -15,7 +16,7 @@ function Health({ health }: HealthProps) {
 
   return (
     <Row md={8} className='mt-5 align-content-start'>
-      <Link href={`category/${firstArticle.category}`}>
+      <Link href={`/${CATEGORY}/${firstArticle.category}`}>
         <h2 className='mb-5 postTitle text-decoration-underline text-capitalize fs-5'>
           <a>{firstArticle.category}</a>
         </h2>
@@ -28,7 +29,7 @@ function Health({ health }: HealthProps) {
           alt={firstArticle.alt}
         />
         <div className='mt-5'>
-          <Link href={`detail/${firstArticle.id}`}>
+          <Link href={`${DETAIL}/${firstArticle.id}`}>
             <a className='fs-5 text-black text-decoration-none text-capitalize'>
               {firstArticle.title}
             </a>
@@ -48,14 +49,14 @@ function Health({ health }: HealthProps) {
               alt={item.alt}
             />
             <div className='ms-4'>
-              <Link href={`detail/${item.id}`}>
+              <Link href={`${DETAIL}/${item.id}`}>
                 <a className='fs-6 text-black text-decoration-none text-capitalize'>
                   {item.title}
                 </a>
               </Link>
               <p className='text-capitalize category mt-3'>
                 Dave Rogers <code className='text-secondary'>in</code>{' '}
-                <Link href={`category/${item.category}`}>
+                <Link href={`/${CATEGORY}/${item.category}`}>
                   <a className='text-black text-decoration-none'>
                     {item.category}
                   </a>

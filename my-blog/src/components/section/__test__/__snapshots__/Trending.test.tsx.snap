@@ -5,11 +5,9 @@ exports[`testing Trending section render Trending section 1`] = `
   class="mt-5 ps-4 col-md-4"
 >
   <h2
-    class="mb-5 postTitle text-decoration-underline text-capitalize fs-5"
+    class="mb-5 text-decoration-underline text-capitalize fs-5"
   >
-    <a>
-      trending
-    </a>
+    trending
   </h2>
   <div
     class="mt-3 d-flex"

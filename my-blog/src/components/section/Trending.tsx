@@ -4,6 +4,7 @@ import { Col } from 'react-bootstrap';
 
 import Styles from '@/styles/Trending.module.css';
 import { Blog } from '@/types/blog';
+import { CATEGORY, DETAIL } from 'constant/Category';
 
 type TrendingProps = {
   trending: Blog[];
@@ -21,7 +22,7 @@ function Trending({ trending }: TrendingProps) {
         <div key={item.id} className='mt-3 d-flex'>
           <h3 className={Styles.number}>0{index + 1}</h3>
           <div className='ms-4'>
-            <Link href={`/detail/${item.id}`}>
+            <Link href={`/${DETAIL}/${item.id}`}>
               <a
                 className={`text-black text-capitalize text-decoration-none ${Styles.title}`}
               >
@@ -30,7 +31,7 @@ function Trending({ trending }: TrendingProps) {
             </Link>
             <p className='text-capitalize category mt-3'>
               Dave Rogers <code className='text-secondary'>in</code>{' '}
-              <Link href={`/category/${item.category}`}>
+              <Link href={`/${CATEGORY}/${item.category}`}>
                 <a className='text-black text-decoration-none'>
                   {item.category}
                 </a>
