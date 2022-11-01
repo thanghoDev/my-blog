@@ -1,32 +1,12 @@
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 
 // components
 import SearchPosts from '@/components/SearchPosts';
-import { Blog } from '@/types/blog';
-
-import { BLOG } from 'constant/Blog';
 
 function Header() {
-  const [data, setData] = useState<Blog[]>([]);
-  const [isLoading, setLoading] = useState(false);
   const [searchValue, setSearchValue] = useState('');
-
-  useEffect(() => {
-    if (searchValue) {
-      setLoading(true);
-      fetch(
-        `${process.env.NEXT_PUBLIC_DEVELOPMENT}/${BLOG}?search=${searchValue}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-          setLoading(false);
-        });
-    }
-  }, [searchValue]);
-  console.log(data);
 
   return (
     <div className='container'>
@@ -53,8 +33,6 @@ function Header() {
               <SearchPosts
                 searchValue={searchValue}
                 onSearchValueChange={setSearchValue}
-                data={data}
-                loading={isLoading}
               />
             </Offcanvas.Body>
           </Navbar.Offcanvas>
