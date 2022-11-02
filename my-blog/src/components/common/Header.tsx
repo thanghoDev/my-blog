@@ -1,12 +1,19 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 
 // components
 import SearchPosts from '@/components/SearchPosts';
+import { useRouter } from 'next/router';
 
 function Header() {
+  const router = useRouter();
   const [searchValue, setSearchValue] = useState('');
+
+  useEffect(() => {
+    if (!router.isReady) return;
+    setSearchValue(router.query.search as string);
+  }, [router.isReady, router.query.search]);
 
   return (
     <div className='container'>

@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
 import React from 'react';
+import { useRouter } from 'next/router';
 import { Button, Form } from 'react-bootstrap';
 
 type SearchPostsProps = {
@@ -12,7 +12,9 @@ function SearchPosts({ searchValue, onSearchValueChange }: SearchPostsProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onSearchValueChange(e.target.value);
   };
-  const handleClick = () => {
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     if (searchValue) {
       router.push(`/search/${searchValue}`, undefined, {
         shallow: true,
@@ -26,7 +28,7 @@ function SearchPosts({ searchValue, onSearchValueChange }: SearchPostsProps) {
           type='text'
           placeholder='Search...'
           aria-label='Search'
-          value={searchValue}
+          defaultValue={searchValue}
           onChange={handleChange}
           required
         />
