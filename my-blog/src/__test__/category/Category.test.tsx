@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Category, {
   getStaticPaths,
   getStaticProps,
@@ -130,7 +130,7 @@ describe('testing Category page', () => {
         content: 'content',
       },
     ];
-    render(
+    const { container } = render(
       <Category
         category={category}
         categories={categories}
@@ -139,5 +139,10 @@ describe('testing Category page', () => {
         totalPage={totalPage}
       />
     );
+    expect(container).toMatchSnapshot();
+    const title = screen.getByRole('heading', {
+      name: /category/i,
+    });
+    expect(title).toBeInTheDocument();
   });
 });

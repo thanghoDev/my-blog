@@ -66,6 +66,12 @@ describe('testing Detail page', () => {
     };
     render(<Detail data={data} />);
 
+    const title = screen.getByRole('heading', {
+      name: /title/i,
+    });
+    expect(title).toBeInTheDocument();
+    const content = screen.getByText('content');
+    expect(content).toBeInTheDocument();
     const images = screen.getByRole('img', {
       name: /alt/i,
     });

@@ -160,7 +160,7 @@ describe('render home page', () => {
     expect(fetch).toHaveBeenCalled();
   });
   test('testing home page', () => {
-    render(
+    const { container } = render(
       <Home
         health={health}
         trending={trending}
@@ -169,5 +169,6 @@ describe('render home page', () => {
         carousel={carousel}
       />
     );
+    expect(container).toMatchSnapshot();
   });
 });
