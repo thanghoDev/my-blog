@@ -52,8 +52,8 @@ function Detail({ data }: DetailProps) {
         <Col>
           <Image
             className='mb-5'
-            width='1120'
-            height='650'
+            width={1120}
+            height={650}
             src={data.images}
             alt={data.alt}
           />
