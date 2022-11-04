@@ -21,7 +21,7 @@ function Search() {
 
   // get data to render page
   const { data, error } = useSWR<Blog[]>(
-    `search=${searchValue}&page=${page}&limit=4`,
+    `title=${searchValue}&page=${page}&limit=4`,
     FetchPosts
   );
 
