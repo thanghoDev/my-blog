@@ -37,6 +37,7 @@ function Search() {
         className='position-absolute top-50 start-50'
         animation='border'
         variant='primary'
+        data-testid='spinner'
       />
     );
   if (error || totalDataError) return <div>Failed to load</div>;

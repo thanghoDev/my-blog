@@ -28,7 +28,7 @@ function SearchPosts({ searchValue, onSearchValueChange }: SearchPostsProps) {
           type='text'
           placeholder='Search...'
           aria-label='Search'
-          defaultValue={searchValue}
+          value={searchValue}
           onChange={handleChange}
           required
         />
