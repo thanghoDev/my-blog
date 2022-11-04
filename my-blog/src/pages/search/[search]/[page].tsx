@@ -11,6 +11,9 @@ import { FetchPosts } from '@/helpers/FetchPosts';
 // types
 import { Blog } from '@/types/blog';
 
+// constant
+import { CATEGORY } from 'constant/Category';
+
 function Search() {
   const router = useRouter();
   const page = router.query.page;
@@ -68,7 +71,11 @@ function Search() {
                     <p className='description'>{item.description}</p>
                     <p className='text-capitalize category'>
                       Dave Rogers <code className='text-secondary'>in</code>{' '}
-                      {item.category}
+                      <Link href={`/${CATEGORY}/${item.category}`}>
+                        <a className='text-black text-decoration-none'>
+                          {item.category}
+                        </a>
+                      </Link>
                     </p>
                   </div>
                 </div>
