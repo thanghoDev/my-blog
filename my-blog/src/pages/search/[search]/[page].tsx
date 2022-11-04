@@ -21,7 +21,7 @@ function Search() {
 
   // get data to render page
   const { data, error } = useSWR<Blog[]>(
-    `search=${searchValue}&page=${page}&limit=4`,
+    `title=${searchValue}&page=${page}&limit=4`,
     FetchPosts
   );
 
@@ -37,6 +37,7 @@ function Search() {
         className='position-absolute top-50 start-50'
         animation='border'
         variant='primary'
+        data-testid='spinner'
       />
     );
   if (error || totalDataError) return <div>Failed to load</div>;
