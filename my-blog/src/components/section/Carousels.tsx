@@ -17,9 +17,9 @@ function Carousels({ carousel }: CarouselsProps) {
       {carousel.map((item) => (
         <Carousel.Item key={item.id}>
           <Image
-            className='d-block w-50'
-            width='555'
-            height='377'
+            className='d-block'
+            width={555}
+            height={377}
             src={item.images}
             alt={item.alt}
           />

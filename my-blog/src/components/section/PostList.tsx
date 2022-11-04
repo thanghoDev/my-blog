@@ -25,7 +25,7 @@ function PostList({ data, title }: PostListProps) {
 
       {data.map((item) => (
         <div key={item.id} className='d-flex mb-3'>
-          <Image width='165' height='180' src={item.images} alt={item.alt} />
+          <Image width={165} height={180} src={item.images} alt={item.alt} />
           <div className='ms-4'>
             <Link href={`/${DETAIL}/${item.id}`}>
               <a className='fs-6 text-decoration-none text-black text-capitalize postTitle'>
