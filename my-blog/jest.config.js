@@ -7,6 +7,7 @@ module.exports = {
     '!src/pages/_app.tsx',
     '!src/pages/_document.tsx',
     '!src/pages/api/*',
+    '!src/components/layout/*',
   ],
   coverageThreshold: {
     global: {
