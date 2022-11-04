@@ -11,6 +11,10 @@ const nextConfig = {
         source: '/category/:category',
         destination: '/category/:category/1',
       },
+      {
+        source: '/search/:search',
+        destination: '/search/:search/1',
+      },
     ];
   },
 };
