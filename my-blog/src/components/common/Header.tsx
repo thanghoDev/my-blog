@@ -11,8 +11,9 @@ function Header() {
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
-    if (!router.isReady) return;
-    setSearchValue(router.query.search as string);
+    if (router.isReady) {
+      setSearchValue((router.query.search as string) || '');
+    }
   }, [router.isReady, router.query.search]);
 
   return (
