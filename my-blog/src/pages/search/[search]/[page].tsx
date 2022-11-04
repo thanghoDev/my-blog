@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useSWR from 'swr';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,7 +13,7 @@ import { Blog } from '@/types/blog';
 
 function Search() {
   const router = useRouter();
-  const [page, setPage] = useState(1);
+  const page = router.query.page;
   const searchValue = router.query.search;
 
   // get data to render page
@@ -87,8 +87,9 @@ function Search() {
         {totalPage.map((item, index) => (
           <Link key={index} href={`/search/${searchValue}/${item}`} passHref>
             <Pagination.Item
-              onClick={() => setPage(item)}
-              className={`${item === page ? 'disabled' : ''}`}
+              className={`${
+                item === parseInt(page as string) ? 'disabled' : ''
+              }`}
             >
               {item}
             </Pagination.Item>
