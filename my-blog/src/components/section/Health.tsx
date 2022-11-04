@@ -23,8 +23,8 @@ function Health({ health }: HealthProps) {
       </Link>
       <Col md={6}>
         <Image
-          width='350'
-          height='210'
+          width={350}
+          height={210}
           src={firstArticle.images}
           alt={firstArticle.alt}
         />
@@ -41,13 +41,7 @@ function Health({ health }: HealthProps) {
       <Col md={6}>
         {resArticle.map((item) => (
           <div key={item.id} className='d-flex mb-2'>
-            <Image
-              width='105'
-              height='107'
-              style={{ objectFit: 'cover' }}
-              src={item.images}
-              alt={item.alt}
-            />
+            <Image width={105} height={107} src={item.images} alt={item.alt} />
             <div className='ms-4'>
               <Link href={`${DETAIL}/${item.id}`}>
                 <a className='fs-6 text-black text-decoration-none text-capitalize'>

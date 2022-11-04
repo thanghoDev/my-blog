@@ -2,7 +2,7 @@
 
 exports[`testing Carousels render Carousels 1`] = `
 <div
-  class="mt-5 d-flex bg-light carousel slide"
+  class="mt-5 d-flex bg-light carousel slide carousel-dark"
 >
   <div
     class="carousel-indicators"
@@ -23,7 +23,7 @@ exports[`testing Carousels render Carousels 1`] = `
     >
       <img
         alt="carousel"
-        class="d-block w-50"
+        class="d-block"
         data-nimg="future"
         decoding="async"
         height="377"
