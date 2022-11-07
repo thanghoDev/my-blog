@@ -46,7 +46,7 @@ exports[`testing Trending section render Trending section 1`] = `
   </div>
   <a
     class="text-uppercase link-success text-decoration-none"
-    href="/category/trending"
+    href="/#"
   >
     See all trends
     <i

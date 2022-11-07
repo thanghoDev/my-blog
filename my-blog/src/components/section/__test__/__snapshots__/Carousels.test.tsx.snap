@@ -37,7 +37,7 @@ exports[`testing Carousels render Carousels 1`] = `
         class="text-dark text-start w-50 top-0 start-50 ps-4 carousel-caption"
       >
         <h3
-          class="text-capitalize text-black"
+          class="text-capitalize text-black postTitle"
         >
           <a>
             title

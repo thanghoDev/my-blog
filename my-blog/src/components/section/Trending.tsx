@@ -41,7 +41,7 @@ function Trending({ trending }: TrendingProps) {
         </div>
       ))}
 
-      <Link href={`/category/trending`}>
+      <Link href='#'>
         <a className='text-uppercase link-success text-decoration-none'>
           See all trends<i className='bi bi-chevron-right'></i>
         </a>
