@@ -5,6 +5,8 @@ import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 // components
 import SearchPosts from '@/components/SearchPosts';
 import { useRouter } from 'next/router';
+
+// constants
 import { CATEGORY } from 'constant/Pages';
 
 function Header() {
