@@ -35,3 +35,24 @@
 - Estimate time: 7 days.
 
 - You can check more specifically [here](https://docs.google.com/document/d/1FwESWJE7pNO-yER_FvM7chXNbXsUInSMU5agePti1tU/edit#)
+
+## GETTING STARTED
+
+- Clone project: `git@gitlab.asoft-python.com:thang.ho/react-training.git`
+
+- change directory: `cd react-training/my-blog/`
+
+- Checkout branch: `git checkout nextjs-practice`
+
+- Setup environment variable:
+
+  - Create file `.env` (refer to file `.env.sample`) under root app folder
+  - Set `NEXT_PUBLIC_DEVELOPMENT` with `https://63520df09d64d7c7130d539c.mockapi.io`
+
+- Install pnpm: `pnpm install`
+
+- start project: `pnpm dev`
+
+- Open app at: http://localhost:3000/
+
+- run testing: `pnpm test` or `pnpm coverage`.
