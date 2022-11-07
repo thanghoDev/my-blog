@@ -180,7 +180,7 @@ function Category({
           {totalPage.map((item, index) => (
             <Link
               key={index}
-              href={`/${CATEGORY}/${category}/${item}`}
+              href={`/${CATEGORY}/${category}?page=${item}`}
               passHref
             >
               <Pagination.Item

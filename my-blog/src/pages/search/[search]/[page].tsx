@@ -94,7 +94,11 @@ function Search() {
 
       <Pagination>
         {totalPage.map((item, index) => (
-          <Link key={index} href={`/search/${searchValue}/${item}`} passHref>
+          <Link
+            key={index}
+            href={`/search/${searchValue}?page=${item}`}
+            passHref
+          >
             <Pagination.Item
               className={`${
                 item === parseInt(page as string) ? 'disabled' : ''
