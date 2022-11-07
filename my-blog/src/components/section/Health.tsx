@@ -5,7 +5,7 @@ import { Col, Row } from 'react-bootstrap';
 // types
 import { Blog } from '@/types/blog';
 import Link from 'next/link';
-import { CATEGORY, DETAIL } from 'constant/Category';
+import { CATEGORY, DETAIL } from 'constant/Pages';
 
 type HealthProps = {
   health: Blog[];

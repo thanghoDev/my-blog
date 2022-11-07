@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Carousel } from 'react-bootstrap';
 
 // constant
-import { CATEGORY, DETAIL } from 'constant/Category';
+import { CATEGORY, DETAIL } from 'constant/Pages';
 
 // types
 import { Blog } from '@/types/blog';

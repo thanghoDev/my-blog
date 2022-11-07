@@ -16,7 +16,7 @@ import { FetchPosts } from '@/helpers/FetchPosts';
 
 // constant
 import { BLOG } from 'constant/Blog';
-import { CATEGORY } from 'constant/Category';
+import { CATEGORY } from 'constant/Pages';
 
 type DetailProps = {
   data: Blog;

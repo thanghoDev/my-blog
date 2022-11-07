@@ -12,7 +12,7 @@ import { FetchPosts } from '@/helpers/FetchPosts';
 import { Blog } from '@/types/blog';
 
 // constant
-import { CATEGORY } from 'constant/Category';
+import { CATEGORY } from 'constant/Pages';
 
 function Search() {
   const router = useRouter();
