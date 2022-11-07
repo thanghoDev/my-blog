@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Col, Row } from 'react-bootstrap';
+import { useRouter } from 'next/router';
+import { Col, Row, Spinner } from 'react-bootstrap';
 import Pagination from 'react-bootstrap/Pagination';
 
 // components
@@ -73,7 +74,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths = paths.concat(arr);
   });
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -93,6 +94,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       search: `${category}`,
     }),
   ]);
+
+  if (
+    categories.length === 0 ||
+    trending.length === 0 ||
+    allCategory.length === 0
+  ) {
+    return {
+      notFound: true,
+    };
+  }
 
   const total = Math.ceil(allCategory.length / 4);
   const totalPage = Array.from({ length: total }, (_, index) => index + 1);
@@ -116,11 +127,23 @@ function Category({
   totalPage,
   page,
 }: CategoryProps) {
+  const router = useRouter();
+  if (router.isFallback) {
+    return (
+      <Spinner
+        className='position-absolute top-50 start-50'
+        animation='border'
+        variant='primary'
+        data-testid='spinner'
+      />
+    );
+  }
+
   return (
     <>
-      <div className='container '>
+      <div className='container'>
         <div className='d-flex'>
-          <Row>
+          <Row className='flex-column'>
             <span>Categories</span>
             <h2 className='text-capitalize text-decoration-underline'>
               {category}

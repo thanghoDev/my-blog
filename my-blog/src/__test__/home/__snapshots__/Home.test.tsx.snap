@@ -47,7 +47,7 @@ exports[`render home page testing home page 1`] = `
             class="text-dark text-start w-50 top-0 start-50 ps-4 carousel-caption"
           >
             <h3
-              class="text-capitalize text-black"
+              class="text-capitalize text-black postTitle"
             >
               <a>
                 title
@@ -96,7 +96,7 @@ exports[`render home page testing home page 1`] = `
             class="text-dark text-start w-50 top-0 start-50 ps-4 carousel-caption"
           >
             <h3
-              class="text-capitalize text-black"
+              class="text-capitalize text-black postTitle"
             >
               <a>
                 title2
@@ -330,7 +330,7 @@ exports[`render home page testing home page 1`] = `
         </div>
         <a
           class="text-uppercase link-success text-decoration-none"
-          href="/category/trending"
+          href="/#"
         >
           See all trends
           <i
