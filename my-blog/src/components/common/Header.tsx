@@ -6,6 +6,9 @@ import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import SearchPosts from '@/components/SearchPosts';
 import { useRouter } from 'next/router';
 
+// constants
+import { CATEGORY } from 'constant/Pages';
+
 function Header() {
   const router = useRouter();
   const [searchValue, setSearchValue] = useState('');
@@ -46,24 +49,24 @@ function Header() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-      <Nav defaultActiveKey='/home' className='gap-4 mt-4 pb-5' as='ul'>
+      <Nav defaultActiveKey='/' className='gap-4 mt-4 pb-5' as='ul'>
         <Nav.Item as='li'>
           <Link href='/' passHref>
             <Nav.Link className='text-black-50'>Home</Nav.Link>
           </Link>
         </Nav.Item>
         <Nav.Item as='li'>
-          <Link href='/category/politics' passHref>
+          <Link href={`/${CATEGORY}/politics`} passHref>
             <Nav.Link className='text-black-50'>Politics</Nav.Link>
           </Link>
         </Nav.Item>
         <Nav.Item as='li'>
-          <Link href='/category/business' passHref>
+          <Link href={`/${CATEGORY}/business`} passHref>
             <Nav.Link className='text-black-50'>Business</Nav.Link>
           </Link>
         </Nav.Item>
         <Nav.Item as='li'>
-          <Link href='/category/health' passHref>
+          <Link href={`/${CATEGORY}/health`} passHref>
             <Nav.Link className='text-black-50'>Health</Nav.Link>
           </Link>
         </Nav.Item>

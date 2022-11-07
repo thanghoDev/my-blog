@@ -17,7 +17,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { FetchPosts } from '@/helpers/FetchPosts';
 
 // constants
-import { CATEGORY } from 'constant/Category';
+import { CATEGORY } from 'constant/Pages';
 import { BLOG } from 'constant/Blog';
 
 type CategoryProps = {

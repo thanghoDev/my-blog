@@ -4,7 +4,7 @@ import { Col } from 'react-bootstrap';
 
 import Styles from '@/styles/Trending.module.css';
 import { Blog } from '@/types/blog';
-import { CATEGORY, DETAIL } from 'constant/Category';
+import { CATEGORY, DETAIL } from 'constant/Pages';
 
 type TrendingProps = {
   trending: Blog[];

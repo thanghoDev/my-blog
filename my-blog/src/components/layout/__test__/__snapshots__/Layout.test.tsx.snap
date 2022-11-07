@@ -94,7 +94,7 @@ exports[`testing layout components render layout component 1`] = `
         class="nav-item"
       >
         <a
-          class="text-black-50 nav-link"
+          class="text-black-50 nav-link active"
           data-rr-ui-event-key="/"
           href="/"
         >
