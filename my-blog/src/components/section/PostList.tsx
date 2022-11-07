@@ -17,7 +17,7 @@ type PostListProps = {
 function PostList({ data, title }: PostListProps) {
   return (
     <Col md={6} className='me-4'>
-      <Link href={`/category${title}`}>
+      <Link href={`/${CATEGORY}/${title}`}>
         <h2 className='mb-5 text-decoration-underline text-capitalize fs-5 postTitle'>
           <a>{title}</a>
         </h2>
