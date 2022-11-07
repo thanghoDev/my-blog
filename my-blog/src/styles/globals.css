@@ -20,3 +20,7 @@ h1, h2, h3 {
   font-family: Cabin, sans-serif;
   cursor: pointer;
 }
+
+.vh-75 {
+  height: 75vh;
+}
