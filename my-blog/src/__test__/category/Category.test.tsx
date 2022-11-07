@@ -1,10 +1,16 @@
 import React from 'react';
-
+import { useRouter } from 'next/router';
 import { render, screen } from '@testing-library/react';
 import Category, {
   getStaticPaths,
   getStaticProps,
 } from '@/pages/category/[category]/[page]';
+import { Blog } from '@/types/blog';
+
+jest.mock('next/router', () => ({
+  __esModule: true,
+  useRouter: jest.fn(),
+}));
 
 describe('testing Category page', () => {
   test('testing getStaticPaths', async () => {
@@ -22,7 +28,7 @@ describe('testing Category page', () => {
     );
     const response = await (getStaticPaths as jest.Mock)();
     const paths = [{ params: { category: 'business', page: '1' } }];
-    expect(response).toEqual({ paths, fallback: false });
+    expect(response).toEqual({ paths, fallback: true });
     expect(fetch).toHaveBeenCalled();
   });
 
@@ -101,8 +107,42 @@ describe('testing Category page', () => {
     });
     expect(fetch).toHaveBeenCalled();
   });
+  test('testing getStaticProps render empty', async () => {
+    const categories: Blog[] = [];
+    const trending: Blog[] = [];
+    const allCategory: Blog[] = [];
+    global.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => categories,
+      })
+    );
+    global.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => trending,
+      })
+    );
+    global.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => allCategory,
+      })
+    );
+    const response = await getStaticProps({
+      params: { category: 'searchValue', page: '1' },
+    });
+    expect(response).toEqual({
+      notFound: true,
+    });
+    expect(fetch).toHaveBeenCalled();
+  });
 
   test('render category page', () => {
+    const mockRouter = {
+      isFallback: false,
+    };
+    (useRouter as jest.Mock).mockReturnValue(mockRouter);
     const category = 'category';
     const page = '1';
     const totalPage = [1, 2];
@@ -144,5 +184,22 @@ describe('testing Category page', () => {
       name: /category/i,
     });
     expect(title).toBeInTheDocument();
+  });
+  test('render loading spinner', () => {
+    const mockRouter = {
+      isFallback: true,
+    };
+    (useRouter as jest.Mock).mockReturnValue(mockRouter);
+    render(
+      <Category
+        category={''}
+        page={''}
+        totalPage={[]}
+        categories={[]}
+        trending={[]}
+      />
+    );
+    const spinner = screen.getByTestId('spinner');
+    expect(spinner).toBeInTheDocument();
   });
 });

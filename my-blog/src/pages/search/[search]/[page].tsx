@@ -27,7 +27,7 @@ function Search() {
 
   // get all data
   const { data: totalData, error: totalDataError } = useSWR<Blog[]>(
-    `search=${searchValue}`,
+    `title=${searchValue}`,
     FetchPosts
   );
 
@@ -43,10 +43,11 @@ function Search() {
   if (error || totalDataError) return <div>Failed to load</div>;
 
   const total = Math.ceil(totalData.length / 4);
+
   const totalPage = Array.from({ length: total }, (_, index) => index + 1);
 
   return (
-    <div className='container '>
+    <div className='container vh-75'>
       <div className='d-flex'>
         <Row>
           <h2 className='text-capitalize text-decoration-underline'>

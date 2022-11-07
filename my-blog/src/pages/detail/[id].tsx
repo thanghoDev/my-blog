@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/future/image';
-import { Col } from 'react-bootstrap';
+import { useRouter } from 'next/router';
+import { Col, Spinner } from 'react-bootstrap';
 
 // Components
 import Subscribe from '@/components/section/Subscribe';
@@ -28,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     params: { id: post.id },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -37,15 +38,36 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     `${process.env.NEXT_PUBLIC_DEVELOPMENT}/${BLOG}/${id}`
   );
 
+  const errorCode = response.ok ? false : response.status;
+
   const data = await response.json();
+
+  if (errorCode) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       data,
     },
+    revalidate: 300,
   };
 };
 
 function Detail({ data }: DetailProps) {
+  const router = useRouter();
+  if (router.isFallback) {
+    return (
+      <Spinner
+        className='position-absolute top-50 start-50'
+        animation='border'
+        variant='primary'
+        data-testid='spinner'
+      />
+    );
+  }
   return (
     <>
       <div className='container d-flex'>

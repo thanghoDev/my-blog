@@ -3,13 +3,13 @@
 exports[`testing Category page render category page 1`] = `
 <div>
   <div
-    class="container "
+    class="container"
   >
     <div
       class="d-flex"
     >
       <div
-        class="row"
+        class="flex-column row"
       >
         <span>
           Categories
@@ -123,7 +123,7 @@ exports[`testing Category page render category page 1`] = `
         </div>
         <a
           class="text-uppercase link-success text-decoration-none"
-          href="/category/trending"
+          href="/#"
         >
           See all trends
           <i
