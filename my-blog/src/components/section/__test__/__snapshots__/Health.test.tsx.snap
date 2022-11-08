@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing Health section render Health section 1`] = `
+<div
+  class="mt-5 align-content-start row row-cols-md-8"
+>
+  <h2
+    class="mb-5 postTitle text-decoration-underline text-capitalize fs-5"
+  >
+    <a>
+      health
+    </a>
+  </h2>
+  <div
+    class="col-md-6"
+  >
+    <img
+      alt="health"
+      data-nimg="future"
+      decoding="async"
+      height="210"
+      loading="lazy"
+      src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fhealth.jpg&w=750&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fhealth.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fhealth.jpg&w=750&q=75 2x"
+      style="color: transparent;"
+      width="350"
+    />
+    <div
+      class="mt-5"
+    >
+      <a
+        class="fs-5 text-black text-decoration-none text-capitalize"
+        href="/detail/1"
+      >
+        title
+      </a>
+      <p
+        class="description"
+      >
+        description
+      </p>
+    </div>
+  </div>
+  <div
+    class="col-md-6"
+  >
+    <div
+      class="d-flex mb-2"
+    >
+      <img
+        alt="resHeath"
+        data-nimg="future"
+        decoding="async"
+        height="107"
+        loading="lazy"
+        src="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fhealth.jpg&w=256&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fhealth.jpg&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fi.ibb.co%2F10hj3h1%2Fhealth.jpg&w=256&q=75 2x"
+        style="color: transparent;"
+        width="105"
+      />
+      <div
+        class="ms-4"
+      >
+        <a
+          class="fs-6 text-black text-decoration-none text-capitalize"
+          href="/detail/2"
+        >
+          title2
+        </a>
+        <p
+          class="text-capitalize category mt-3"
+        >
+          Dave Rogers 
+          <code
+            class="text-secondary"
+          >
+            in
+          </code>
+           
+          <a
+            class="text-black text-decoration-none"
+            href="/category/resHeath"
+          >
+            resHeath
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

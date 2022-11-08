@@ -1,0 +1,9 @@
+.number {
+  font-size: 30px;
+  color: #ccc;
+}
+
+.title {
+  font-size: 18px;
+  cursor: pointer;
+}

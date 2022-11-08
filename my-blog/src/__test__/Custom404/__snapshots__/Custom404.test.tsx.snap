@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing custom 404 page render custom 404 page 1`] = `
+<div>
+  <div
+    class="text-center pt-5 pb-5 vh-75"
+  >
+    <h1>
+      Oooops...
+    </h1>
+    <h2
+      class="mt-5 mb-5"
+    >
+      That page cannot be found
+    </h2>
+    <p>
+      Go back to the
+       
+      <a
+        class="text-decoration-none text-secondary"
+        href="/"
+      >
+        Homepage
+      </a>
+    </p>
+  </div>
+</div>
+`;
