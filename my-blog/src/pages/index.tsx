@@ -20,28 +20,28 @@ type HomePageProps = {
 
 export const getStaticProps = async () => {
   const [carousel, health, trending, business, politics] = await Promise.all([
-    FetchPosts({ page: '1', limit: '2', sortBy: 'id', order: 'desc' }),
+    FetchPosts({ page: '1', limit: '2', sortBy: 'id', order: 'asc' }),
     FetchPosts({
       page: '1',
       limit: '4',
       search: 'health',
       sortBy: 'id',
-      order: 'desc',
+      order: 'asc',
     }),
-    FetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'desc' }),
+    FetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'asc' }),
     FetchPosts({
       page: '1',
       limit: '3',
       search: 'business',
       sortBy: 'id',
-      order: 'desc',
+      order: 'asc',
     }),
     FetchPosts({
       page: '1',
       limit: '3',
       search: 'politics',
       sortBy: 'id',
-      order: 'desc',
+      order: 'asc',
     }),
   ]);
 
