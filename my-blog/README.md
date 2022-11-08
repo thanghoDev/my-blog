@@ -9,8 +9,6 @@
 - Data Fetching SWR.
 - Jest & React Testing Lib.
 - CSS Modules.
-- Vercel.
-- Storybook.
 
 ## Editor:
 
@@ -22,7 +20,6 @@
 - Apply core knowledge :
   - Pre-rendering Strategies: SSR, SSG, ISR.
   - next/future/image, next/link, next/head, ...
-- Storybook.
 - Unit test.
   - Write unit test cover 80%.
 
@@ -56,3 +53,5 @@
 - Open app at: http://localhost:3000/
 
 - run testing: `pnpm test` or `pnpm coverage`.
+
+## DEPLOYED LINK: https://my-blog-posts-five.vercel.app/
