@@ -9,7 +9,6 @@
 - Data Fetching SWR.
 - Jest & React Testing Lib.
 - CSS Modules.
-- Vercel.
 
 ## Editor:
 
@@ -54,3 +53,5 @@
 - Open app at: http://localhost:3000/
 
 - run testing: `pnpm test` or `pnpm coverage`.
+
+## DEPLOYED LINK: https://my-blog-posts-five.vercel.app/
