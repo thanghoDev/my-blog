@@ -3,15 +3,19 @@ import Link from 'next/link';
 import { Col } from 'react-bootstrap';
 
 import Styles from '@/styles/Trending.module.css';
+
+// types
 import { Blog } from '@/types/blog';
-import { CATEGORY, DETAIL } from 'constant/Pages';
+
+// constants
+import { CATEGORY, DETAIL } from '@/constants/pages';
 
 type TrendingProps = {
   trending: Blog[];
 };
 
 function Trending({ trending }: TrendingProps) {
-  if (!trending) return <div>loading</div>;
+  // if (!trending) return <div>loading</div>;
   return (
     <Col md={4} className='mt-5 ps-4'>
       <h2 className='mb-5 text-decoration-underline text-capitalize fs-5'>
@@ -19,6 +23,7 @@ function Trending({ trending }: TrendingProps) {
       </h2>
 
       {trending.map((item, index) => (
+        //
         <div key={item.id} className='mt-3 d-flex'>
           <h3 className={Styles.number}>0{index + 1}</h3>
           <div className='ms-4'>
