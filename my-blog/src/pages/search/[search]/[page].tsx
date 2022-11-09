@@ -47,7 +47,7 @@ function Search() {
   const totalPage = Array.from({ length: total }, (_, index) => index + 1);
 
   return (
-    <div className='container vh-75'>
+    <div className='container'>
       <div className='d-flex'>
         <Row>
           <h2 className='text-capitalize text-decoration-underline'>
@@ -58,7 +58,7 @@ function Search() {
               data.map((item) => (
                 <div key={item.id} className='d-flex mb-3'>
                   <Image
-                    className='me-3 w-50'
+                    className='me-3'
                     height='255'
                     width='348'
                     src={item.images}
