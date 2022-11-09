@@ -5,25 +5,25 @@ import { useRouter } from 'next/router';
 import { Col, Spinner } from 'react-bootstrap';
 
 // Components
-import Subscribe from '@/components/section/Subscribe';
+import Subscribe from '@/components/sections/Subscribe';
 
 // types
 import { Blog } from '@/types/blog';
 import { GetStaticPaths, GetStaticProps } from 'next/types';
 
 // helper
-import { FetchPosts } from '@/helpers/FetchPosts';
+import { fetchPosts } from '@/helpers/fetchPosts';
 
 // constant
-import { BLOG } from 'constant/Blog';
-import { CATEGORY } from 'constant/Pages';
+import { BLOG } from '@/constants/blog';
+import { CATEGORY } from '@/constants/pages';
 
 type DetailProps = {
   data: Blog;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await FetchPosts({});
+  const data = await fetchPosts({});
 
   const paths = data.map((post: Blog) => ({
     params: { id: post.id },

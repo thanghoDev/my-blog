@@ -6,13 +6,13 @@ import { useRouter } from 'next/router';
 import { Col, Pagination, Row, Spinner } from 'react-bootstrap';
 
 // helpers
-import { FetchPosts } from '@/helpers/FetchPosts';
+import { fetchPosts } from '@/helpers/fetchPosts';
 
 // types
 import { Blog } from '@/types/blog';
 
 // constant
-import { CATEGORY } from 'constant/Pages';
+import { CATEGORY } from '@/constants/pages';
 
 function Search() {
   const router = useRouter();
@@ -22,13 +22,13 @@ function Search() {
   // get data to render page
   const { data, error } = useSWR<Blog[]>(
     `title=${searchValue}&page=${page}&limit=4`,
-    FetchPosts
+    fetchPosts
   );
 
   // get all data
   const { data: totalData, error: totalDataError } = useSWR<Blog[]>(
     `title=${searchValue}`,
-    FetchPosts
+    fetchPosts
   );
 
   if (!data || !totalData)
