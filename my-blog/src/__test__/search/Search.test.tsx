@@ -47,6 +47,11 @@ describe('testing search page', () => {
       name: /search/i,
     });
     expect(SearchTitle).toBeInTheDocument();
+
+    data.forEach((item) => {
+      expect(screen.getByText(item.title)).toBeInTheDocument();
+      expect(screen.getByRole('img', { name: item.alt })).toBeInTheDocument();
+    });
   });
 
   test('render search data empty', () => {
@@ -86,5 +91,7 @@ describe('testing search page', () => {
       error: true,
     });
     render(<Search />);
+    const errorHeading = screen.getByText('Failed to load');
+    expect(errorHeading).toBeInTheDocument();
   });
 });
