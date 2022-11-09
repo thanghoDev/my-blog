@@ -5,6 +5,8 @@ import { Col, Row } from 'react-bootstrap';
 // types
 import { Blog } from '@/types/blog';
 import Link from 'next/link';
+
+// constants
 import { CATEGORY, DETAIL } from '@/constants/pages';
 
 type HealthProps = {
