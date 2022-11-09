@@ -7,7 +7,7 @@ import SearchPosts from '@/components/SearchPosts';
 import { useRouter } from 'next/router';
 
 // constants
-import { CATEGORY } from 'constant/Pages';
+import { CATEGORY } from '@/constants/pages';
 
 function Header() {
   const router = useRouter();

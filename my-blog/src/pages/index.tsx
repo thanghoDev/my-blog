@@ -1,14 +1,14 @@
-import Health from '@/components/section/Health';
-import PostList from '@/components/section/PostList';
-import Trending from '@/components/section/Trending';
-import Carousels from '@/components/section/Carousels';
-import Subscribe from '@/components/section/Subscribe';
+import Health from '@/components/sections/Health';
+import PostList from '@/components/sections/PostList';
+import Trending from '@/components/sections/Trending';
+import Carousels from '@/components/sections/Carousels';
+import Subscribe from '@/components/sections/Subscribe';
 
 // types
 import { Blog } from '@/types/blog';
 
 // helpers
-import { FetchPosts } from '@/helpers/FetchPosts';
+import { fetchPosts } from '@/helpers/fetchPosts';
 
 type HomePageProps = {
   health: Blog[];
@@ -20,23 +20,23 @@ type HomePageProps = {
 
 export const getStaticProps = async () => {
   const [carousel, health, trending, business, politics] = await Promise.all([
-    FetchPosts({ page: '1', limit: '2', sortBy: 'id', order: 'asc' }),
-    FetchPosts({
+    fetchPosts({ page: '1', limit: '2', sortBy: 'id', order: 'asc' }),
+    fetchPosts({
       page: '1',
       limit: '4',
       search: 'health',
       sortBy: 'id',
       order: 'asc',
     }),
-    FetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'asc' }),
-    FetchPosts({
+    fetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'asc' }),
+    fetchPosts({
       page: '1',
       limit: '3',
       search: 'business',
       sortBy: 'id',
       order: 'asc',
     }),
-    FetchPosts({
+    fetchPosts({
       page: '1',
       limit: '3',
       search: 'politics',
