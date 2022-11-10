@@ -37,7 +37,7 @@ exports[`testing Category page render category page 1`] = `
               <p
                 class="description"
               >
-                description
+                description categories
               </p>
               <p
                 class="text-capitalize category"

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Col } from 'react-bootstrap';
 
 // constants
-import { CATEGORY, DETAIL } from 'constant/Pages';
+import { CATEGORY, DETAIL } from '@/constants/pages';
 
 // types
 import { Blog } from '@/types/blog';

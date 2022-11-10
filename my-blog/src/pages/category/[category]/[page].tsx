@@ -6,19 +6,19 @@ import { Col, Row, Spinner } from 'react-bootstrap';
 import Pagination from 'react-bootstrap/Pagination';
 
 // components
-import Trending from '@/components/section/Trending';
-import Subscribe from '@/components/section/Subscribe';
+import Trending from '@/components/sections/Trending';
+import Subscribe from '@/components/sections/Subscribe';
 
 // types
 import { Blog } from '@/types/blog';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 // helper
-import { FetchPosts } from '@/helpers/FetchPosts';
+import { fetchPosts } from '@/helpers/fetchPosts';
 
 // constants
-import { CATEGORY } from 'constant/Pages';
-import { BLOG } from 'constant/Blog';
+import { CATEGORY } from '@/constants/pages';
+import { BLOG } from '@/constants/blog';
 
 type CategoryProps = {
   category: string;
@@ -82,15 +82,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const page = params?.page;
 
   const [categories, trending, allCategory] = await Promise.all([
-    FetchPosts({
+    fetchPosts({
       page: `${page}`,
       limit: '4',
       search: `${category}`,
       sortBy: 'id',
       order: 'desc',
     }),
-    FetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'desc' }),
-    FetchPosts({
+    fetchPosts({ page: '1', limit: '4', sortBy: 'view', order: 'desc' }),
+    fetchPosts({
       search: `${category}`,
     }),
   ]);

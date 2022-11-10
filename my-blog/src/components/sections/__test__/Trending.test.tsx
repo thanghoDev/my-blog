@@ -20,7 +20,4 @@ describe('testing Trending section', () => {
     const { container } = render(<Trending trending={trending} />);
     expect(container.firstChild).toMatchSnapshot();
   });
-  test('render fail section', () => {
-    render(<Trending trending={undefined} />);
-  });
 });
