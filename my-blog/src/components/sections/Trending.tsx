@@ -2,13 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import { Col } from 'react-bootstrap';
 
-import Styles from '@/styles/Trending.module.css';
-
 // types
 import { Blog } from '@/types/blog';
 
-// constants
-import { CATEGORY, DETAIL } from '@/constants/pages';
+import Trends from '../card/Trends';
 
 type TrendingProps = {
   trending: Blog[];
@@ -22,26 +19,7 @@ function Trending({ trending }: TrendingProps) {
       </h2>
 
       {trending.map((item, index) => (
-        <div key={item.id} className='mt-3 d-flex'>
-          <h3 className={Styles.number}>0{index + 1}</h3>
-          <div className='ms-4'>
-            <Link href={`/${DETAIL}/${item.id}`}>
-              <a
-                className={`text-black text-capitalize text-decoration-none ${Styles.title}`}
-              >
-                {item.title}
-              </a>
-            </Link>
-            <p className='text-capitalize category mt-3'>
-              Dave Rogers <code className='text-secondary'>in</code>{' '}
-              <Link href={`/${CATEGORY}/${item.category}`}>
-                <a className='text-black text-decoration-none'>
-                  {item.category}
-                </a>
-              </Link>
-            </p>
-          </div>
-        </div>
+        <Trends key={item.id} trends={item} index={index} />
       ))}
 
       <Link href='#'>
