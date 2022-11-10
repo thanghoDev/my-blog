@@ -28,7 +28,7 @@ type CategoryProps = {
   trending: Blog[];
 };
 
-type Category = {
+type TpCategory = {
   id: string;
   category: string;
 };
@@ -50,7 +50,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const data = await response.json();
 
   const result = await Promise.all(
-    data.map((item: Category) =>
+    data.map((item: TpCategory) =>
       fetch(
         `${process.env.NEXT_PUBLIC_DEVELOPMENT}/${BLOG}/?search=${item.category}`
       )

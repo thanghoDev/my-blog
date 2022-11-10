@@ -20,7 +20,7 @@ function Health({ health }: HealthProps) {
     <Row md={8} className='mt-5 align-content-start'>
       <Link href={`/${CATEGORY}/${firstArticle.category}`}>
         <h2 className='mb-5 postTitle text-decoration-underline text-capitalize fs-5'>
-          <a>{firstArticle.category}</a>
+          {firstArticle.category}
         </h2>
       </Link>
       <Col md={6}>
