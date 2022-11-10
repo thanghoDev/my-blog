@@ -6,13 +6,13 @@ import { useRouter } from 'next/router';
 import { Col, Pagination, Row, Spinner } from 'react-bootstrap';
 
 // helpers
-import { FetchPosts } from '@/helpers/FetchPosts';
+import { fetchPosts } from '@/helpers/fetchPosts';
 
 // types
 import { Blog } from '@/types/blog';
 
 // constant
-import { CATEGORY } from 'constant/Pages';
+import { CATEGORY } from '@/constants/pages';
 
 function Search() {
   const router = useRouter();
@@ -22,13 +22,13 @@ function Search() {
   // get data to render page
   const { data, error } = useSWR<Blog[]>(
     `title=${searchValue}&page=${page}&limit=4`,
-    FetchPosts
+    fetchPosts
   );
 
   // get all data
   const { data: totalData, error: totalDataError } = useSWR<Blog[]>(
     `title=${searchValue}`,
-    FetchPosts
+    fetchPosts
   );
 
   if (!data || !totalData)
@@ -47,7 +47,7 @@ function Search() {
   const totalPage = Array.from({ length: total }, (_, index) => index + 1);
 
   return (
-    <div className='container vh-75'>
+    <div className='container'>
       <div className='d-flex'>
         <Row>
           <h2 className='text-capitalize text-decoration-underline'>
@@ -58,7 +58,7 @@ function Search() {
               data.map((item) => (
                 <div key={item.id} className='d-flex mb-3'>
                   <Image
-                    className='me-3 w-50'
+                    className='me-3'
                     height='255'
                     width='348'
                     src={item.images}

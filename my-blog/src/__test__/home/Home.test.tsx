@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import Home, { getStaticProps } from '@/pages/index';
 
@@ -7,145 +7,147 @@ describe('render home page', () => {
   const health = [
     {
       id: 1,
-      title: 'title',
-      description: 'description',
-      category: 'category',
+      title: 'title health',
+      description: 'health description',
+      category: 'health',
       view: 111,
-      alt: 'alt',
+      alt: 'alt health',
       images: 'https://i.ibb.co/10hj3h1/images.jpg',
       content: 'content',
     },
     {
       id: 2,
-      title: 'title2',
-      description: 'description',
-      category: 'category2',
+      title: 'title health2',
+      description: 'description health2',
+      category: 'health',
       view: 111,
-      alt: 'alt',
+      alt: 'alt health2',
       images: 'https://i.ibb.co/10hj3h1/images.jpg',
-      content: 'content2',
+      content: 'content health2',
     },
   ];
   const trending = [
     {
       id: 1,
-      title: 'title',
-      description: 'description',
-      category: 'category',
+      title: 'title trending',
+      description: 'description trending',
+      category: 'trending',
       view: 111,
-      alt: 'alt',
+      alt: 'alt trending',
       images: 'https://i.ibb.co/10hj3h1/images.jpg',
-      content: 'content',
+      content: 'content trending',
     },
     {
       id: 2,
-      title: 'title2',
-      description: 'description',
-      category: 'category2',
+      title: 'title trending2',
+      description: 'description trending2',
+      category: 'category',
       view: 111,
-      alt: 'alt',
+      alt: 'alt trending2',
       images: 'https://i.ibb.co/10hj3h1/images.jpg',
-      content: 'content2',
+      content: 'content trending2',
     },
   ];
   const business = [
     {
       id: 1,
-      title: 'title',
-      description: 'description',
-      category: 'category',
+      title: 'title business',
+      description: 'description business',
+      category: 'business',
       view: 111,
-      alt: 'alt',
+      alt: 'alt business',
       images: 'https://i.ibb.co/10hj3h1/images.jpg',
-      content: 'content',
+      content: 'content business',
     },
     {
       id: 2,
-      title: 'title2',
-      description: 'description',
-      category: 'category2',
+      title: 'title business2',
+      description: 'description business2',
+      category: 'business',
       view: 111,
-      alt: 'alt',
+      alt: 'alt business2',
       images: 'https://i.ibb.co/10hj3h1/images.jpg',
-      content: 'content2',
+      content: 'content business2',
     },
   ];
   const politics = [
     {
       id: 1,
-      title: 'title',
-      description: 'description',
-      category: 'category',
+      title: 'title politics',
+      description: 'description politics',
+      category: 'politics',
       view: 111,
-      alt: 'alt',
+      alt: 'alt politics',
       images: 'https://i.ibb.co/10hj3h1/images.jpg',
-      content: 'content',
+      content: 'content politics',
     },
     {
       id: 2,
-      title: 'title2',
-      description: 'description',
-      category: 'category2',
+      title: 'title politics2',
+      description: 'description politics2',
+      category: 'politics',
       view: 111,
-      alt: 'alt',
+      alt: 'alt politics2',
       images: 'https://i.ibb.co/10hj3h1/images.jpg',
-      content: 'content2',
+      content: 'content politics2',
     },
   ];
   const carousel = [
     {
       id: 1,
-      title: 'title',
-      description: 'description',
-      category: 'category',
+      title: 'title carousel',
+      description: 'description carousel',
+      category: 'carousel',
       view: 111,
-      alt: 'alt',
+      alt: 'alt carousel',
       images: 'https://i.ibb.co/10hj3h1/images.jpg',
-      content: 'content',
+      content: 'content carousel',
     },
     {
       id: 2,
-      title: 'title2',
-      description: 'description',
-      category: 'category2',
+      title: 'title carousel2',
+      description: 'description carousel2',
+      category: 'carousel',
       view: 111,
-      alt: 'alt',
+      alt: 'alt carousel2',
       images: 'https://i.ibb.co/10hj3h1/images.jpg',
-      content: 'content2',
+      content: 'content carousel2',
     },
   ];
   test('test getStaticProps', async () => {
-    global.fetch = jest.fn().mockImplementation(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => carousel,
-      })
-    );
-    global.fetch = jest.fn().mockImplementation(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => health,
-      })
-    );
-    global.fetch = jest.fn().mockImplementation(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => trending,
-      })
-    );
-    global.fetch = jest.fn().mockImplementation(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => business,
-      })
-    );
+    global.fetch = jest
+      .fn()
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          ok: true,
+          json: () => carousel,
+        })
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          ok: true,
+          json: () => health,
+        })
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          ok: true,
+          json: () => trending,
+        })
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          ok: true,
+          json: () => business,
+        })
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          ok: true,
+          json: () => politics,
+        })
+      );
 
-    global.fetch = jest.fn().mockImplementation(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => carousel,
-      })
-    );
     const response = await getStaticProps();
     expect(response).toEqual({
       props: {
@@ -170,5 +172,26 @@ describe('render home page', () => {
       />
     );
     expect(container).toMatchSnapshot();
+    health.forEach((item) => {
+      expect(screen.getByText(item.title)).toBeInTheDocument();
+      expect(screen.getByRole('img', { name: item.alt })).toBeInTheDocument();
+    });
+    trending.forEach((item) => {
+      expect(screen.getByText(item.title)).toBeInTheDocument();
+    });
+    business.forEach((item) => {
+      expect(screen.getByText(item.title)).toBeInTheDocument();
+      expect(screen.getByRole('img', { name: item.alt })).toBeInTheDocument();
+      expect(screen.getByText(item.description)).toBeInTheDocument();
+    });
+    politics.forEach((item) => {
+      expect(screen.getByText(item.title)).toBeInTheDocument();
+      expect(screen.getByRole('img', { name: item.alt })).toBeInTheDocument();
+      expect(screen.getByText(item.description)).toBeInTheDocument();
+    });
+    carousel.forEach((item) => {
+      expect(screen.getByText(item.title)).toBeInTheDocument();
+      expect(screen.getByRole('img', { name: item.alt })).toBeInTheDocument();
+    });
   });
 });

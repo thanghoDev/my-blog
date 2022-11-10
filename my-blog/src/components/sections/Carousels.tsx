@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Carousel } from 'react-bootstrap';
 
 // constant
-import { CATEGORY, DETAIL } from 'constant/Pages';
+import { CATEGORY, DETAIL } from '@/constants/pages';
 
 // types
 import { Blog } from '@/types/blog';
@@ -26,7 +26,7 @@ function Carousels({ carousel }: CarouselsProps) {
           <Carousel.Caption className='text-dark text-start w-50 top-0 start-50 ps-4'>
             <Link href={`${DETAIL}/${item.id}`}>
               <h3 className='text-capitalize text-black postTitle'>
-                <a>{item.title}</a>
+                {item.title}
               </h3>
             </Link>
             <p className='description'>{item.description}</p>

@@ -154,7 +154,7 @@ describe('testing Category page', () => {
         category: 'health',
         view: 150,
         images: 'https://i.ibb.co/10hj3h1/health.jpg',
-        alt: 'health',
+        alt: 'alt health',
         content: 'content',
       },
     ];
@@ -162,7 +162,7 @@ describe('testing Category page', () => {
       {
         id: 1,
         title: 'title',
-        description: 'description',
+        description: 'description categories',
         category: 'PostList',
         view: 150,
         images: 'https://i.ibb.co/10hj3h1/PostList.jpg',
@@ -183,6 +183,12 @@ describe('testing Category page', () => {
     const title = screen.getByRole('heading', {
       name: /category/i,
     });
+    const images = screen.getByRole('img', {
+      name: /PostList/i,
+    });
+    expect(images).toBeInTheDocument();
+    const description = screen.getByText('description categories');
+    expect(description).toBeInTheDocument();
     expect(title).toBeInTheDocument();
   });
   test('render loading spinner', () => {

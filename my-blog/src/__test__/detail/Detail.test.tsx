@@ -119,5 +119,7 @@ describe('testing Detail page', () => {
     };
     (useRouter as jest.Mock).mockReturnValue(mockRouter);
     render(<Detail data={data} />);
+    const spinner = screen.getByTestId('spinner');
+    expect(spinner).toBeInTheDocument();
   });
 });

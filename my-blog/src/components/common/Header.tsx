@@ -1,13 +1,13 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 
 // components
-import SearchPosts from '@/components/SearchPosts';
-import { useRouter } from 'next/router';
+import SearchPosts from '../searchPosts';
 
 // constants
-import { CATEGORY } from 'constant/Pages';
+import { CATEGORY } from '@/constants/pages';
 
 function Header() {
   const router = useRouter();
